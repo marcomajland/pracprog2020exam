@@ -12,19 +12,23 @@ class main{
 			y[i] = i*i;		
 		}
 		double[] p = linterp(x,y);
-		var output = new System.IO.StreamWriter("output.txt",append:false);
-		double zmin = 0.1;
-		double zmax = n-2;
-		double dz = 0.1;
-		for(int i = 0;i<p.Length;i++){WriteLine($"{p[i]}");}
-		for(double z=zmin;z<=zmax;z+=dz){
-			output.WriteLine($"{z} {z*z} {evaluate(x, y, p, z)}");
+		var output1 = new System.IO.StreamWriter("output1.txt",append:false);
+		var output2 = new System.IO.StreamWriter("output2.txt",append:false);
+		double zmin = 0;
+		double zmax = n-1;
+		double dz = 0.001;
+		for(int i = 0;i<n;i++){
+			output1.WriteLine($"{x[i]} {y[i]}");
 		}
-		output.Close();
+		output1.Close();		
+		for(double z=zmin;z<=zmax;z+=dz){
+			output2.WriteLine($"{z} {evaluate(x, y, p, z)}");
+		}
+		output2.Close();
 		return 0;
 	}
 	static double[] linterp(double[] x, double[] y){
-		double[] p = new double[x.Length];
+		double[] p = new double[x.Length-1];
 		for(int i=0;i<x.Length-1;i++){
 			p[i] = (y[i+1]-y[i])/(x[i+1]-x[i]);
 		}
@@ -37,13 +41,13 @@ class main{
 	static int binary_search(double[] x, double z){
 		int i = 0;
 		int len = x.Length-1;
-		while(i<=len){
+		while(i<len-1){
 			int mid = (i+len)/2;
 			if(x[mid] < z){
-				i = mid + 1;
+				i = mid;
 			}
 			else{
-				len = mid - 1;
+				len = mid;
 			}
 		}
 		return i;	
