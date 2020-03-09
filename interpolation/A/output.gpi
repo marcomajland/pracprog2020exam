@@ -1,0 +1,10 @@
+set term svg
+set out "Output.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+set style circle radius 0.045
+plot "output.txt" using 1:2 with lines title "y = x^2", "output.txt" using 1:3 with circles fill solid title "Linear interpolation"
