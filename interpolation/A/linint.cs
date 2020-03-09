@@ -6,7 +6,7 @@ class main{
 		//string[] input = System.IO.File.ReadAllLines("xy");
 		int n = 10;
 		double[] x = new double[n];
-		double[] y = new double[n];		
+		double[] y = new double[n];
 		for(int i=0;i<n;i++){
 			x[i] = i;
 			y[i] = i*i;		
@@ -25,7 +25,7 @@ class main{
 			output2.WriteLine($"{z} {evaluate(x, y, p, z)}");
 		}
 		output2.Close();
-		double ints = linterp_int(x, y, p, 10);
+		double ints = linterp_int(x, y, p, 4);
 		WriteLine($"{ints}");
 		return 0;
 	}
