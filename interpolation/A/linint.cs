@@ -25,6 +25,8 @@ class main{
 			output2.WriteLine($"{z} {evaluate(x, y, p, z)}");
 		}
 		output2.Close();
+		double ints = linterp_int(x, y, p, 10);
+		WriteLine($"{ints}");
 		return 0;
 	}
 	static double[] linterp(double[] x, double[] y){
@@ -34,10 +36,19 @@ class main{
 		}
 		return p;
 	}
-	static double evaluate(double[] x, double[] y, double[] p, double z){
-		int i = binary_search(x, z);
-		return y[i] + p[i]*(z - x[i]);
+	static double linterp_int(double[] x, double[] y, double[] p, double z){
+		double ints = 0;
+		int im = binary_search(x, z);
+		for(int i=0;i<im;i++){
+			ints += quad.o8av(F(p[i], y[i]), x[i], x[i+1]);
+		}
+		ints += quad.o8av(F(p[im], y[im]), x[im+1], z);
+		return ints;
 	}
+	public static Func<double,double> F(double a, double b){
+		Func<double,double> f = delegate(double x){return a*x + b;};
+		return f;
+	}			
 	static int binary_search(double[] x, double z){
 		int i = 0;
 		int len = x.Length-1;
@@ -51,6 +62,10 @@ class main{
 			}
 		}
 		return i;	
+	}
+	static double evaluate(double[] x, double[] y, double[] p, double z){
+		int i = binary_search(x, z);
+		return y[i] + p[i]*(z - x[i]);
 	}
 }
 
