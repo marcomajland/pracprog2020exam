@@ -10,10 +10,10 @@ class main{
 			x[i] = i;
 			y[i] = i*i;		
 		}
-		Tuple<double[], double[]> res = qspline.qinterp(x,y);
 		var table = new System.IO.StreamWriter("table.txt",append:false);
 		var lspline_out = new System.IO.StreamWriter("lspline_out.txt",append:false);
 		var qspline_out = new System.IO.StreamWriter("qspline_out.txt",append:false);
+		var cspline_out = new System.IO.StreamWriter("cspline_out.txt",append:false);
 		double zmin = 0;
 		double zmax = n-1;
 		double dz = 0.001;
@@ -21,15 +21,25 @@ class main{
 			table.WriteLine($"{x[i]} {y[i]}");
 		}
 		table.Close();		
-		double[] p = qspline.linterp(x,y);
+		double[] lres = qspline.linterp(x,y);
 		for(double z=zmin;z<=zmax;z+=dz){
-			lspline_out.WriteLine($"{z} {qspline.levaluate(x, y, p, z)}");
+			lspline_out.WriteLine($"{z} {qspline.levaluate(x, y, lres, z)}");
 		}
 		lspline_out.Close();			
+		Tuple<double[], double[]> qres = qspline.qinterp(x,y);
 		for(double z=zmin;z<=zmax;z+=dz){
-			qspline_out.WriteLine($"{z} {qspline.qevaluate(x, y, res.Item1, res.Item2, z)}");
+			qspline_out.WriteLine($"{z} {qspline.qevaluate(x, y, qres.Item1, qres.Item2, z)}");
 		}
 		qspline_out.Close();
+		Tuple<double[], double[], double[]> cres = cspline.cinterp(x,y);
+		for(double z=zmin;z<=zmax;z+=dz){
+			cspline_out.WriteLine($"{z} {cspline.cevaluate(x, y, cres.Item1, cres.Item2, cres.Item3, z)}");
+		}
+		cspline_out.Close();
 		return 0;
 	}
 }
+
+
+
+
