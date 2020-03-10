@@ -1,0 +1,10 @@
+set term svg
+set out "Qspline.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+set style circle radius 0.045
+plot "table.txt" using 1:2 with circles fill solid title "y = x^2", "qspline_out.txt" using 1:2 with lines title "Quadratic interpolation"
