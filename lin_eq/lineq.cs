@@ -4,9 +4,9 @@ class lineq{
 	public static int Main(){
 		Random rnd = new Random();
 		int minint = 0;
-		int maxint = 10;
+		int maxint = 20;
 		int n = 5;
-		int m = 3;
+		int m = 5;
 		matrix A = new matrix(n,m); // Row/column convention is interchanged
 		vector b = new vector(n);
 		for(int i=0;i<m;i++){for(int j=0;j<n;j++){A[i][j] = rnd.Next(minint,maxint);}}
@@ -14,6 +14,7 @@ class lineq{
 		Tuple<matrix, matrix> QR = qr_gs_decomp(A);
 		matrix Q = QR.Item1;
 		matrix R = QR.Item2;
+		vector x = qr_gs_solve(Q, R, b);
 		WriteLine($"A:");
 		A.print();
 		WriteLine($"Q:");
@@ -24,6 +25,10 @@ class lineq{
 		R.print();
 		WriteLine($"Q*R:");
 		(Q*R).print();
+		WriteLine($"b:");
+		b.print();
+		WriteLine($"Ax:");
+		(A*x).print();
 		return 0;
 	}
 	public static Tuple<matrix, matrix> qr_gs_decomp(matrix A){
@@ -42,25 +47,19 @@ class lineq{
 		}
 		return Tuple.Create(Q,R);
 	}
-	public static int qr_gs_solve(matrix Q, matrix R, vector b){
-		return 0;
-
+	public static vector qr_gs_solve(matrix Q, matrix R, vector b){
+		int n = Q.size1;
+		vector x = new vector(n);
+		vector y = Q.transpose()*b;
+		for(int i=n-1;i>=0;i--){
+			x[i] = y[i]/R[i][i];
+			for(int j=i+1;j<n;j++){
+				x[i] -= (R[j][i]*x[j])/R[i][i];
+			}
+		}
+		return x;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
