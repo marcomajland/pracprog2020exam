@@ -5,7 +5,7 @@ all : interp.exe lspline.gpi qspline.gpi cspline.gpi
 	gnuplot cspline.gpi
 interp.exe : interp.cs lib.dll
 	mcs $< -r:lib.dll
-lib.dll : lspline.cs quado8.cs qspline.cs cspline.cs
+lib.dll : quado8.cs spline.cs
 	mcs $^ -t:library -out:$@
 clean :
-	rm --force *.exe *.svg *.dll *.txt
+	rm --force *.exe *.svg *.dll
