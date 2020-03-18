@@ -14,21 +14,26 @@ class lineq{
 		Tuple<matrix, matrix> QR = qr_gs_decomp(A);
 		matrix Q = QR.Item1;
 		matrix R = QR.Item2;
+		matrix B = qr_gs_inverse(Q, R);
 		vector x = qr_gs_solve(Q, R, b);
-		WriteLine($"A:");
-		A.print();
-		WriteLine($"Q:");
-		Q.print();
-		WriteLine($"Q.transpose*Q:");
-		(Q.transpose()*Q).print();		
-		WriteLine($"R:");
-		R.print();
-		WriteLine($"Q*R:");
-		(Q*R).print();
-		WriteLine($"b:");
-		b.print();
-		WriteLine($"Ax:");
-		(A*x).print();
+//		WriteLine($"A:");
+//		A.print();
+//		WriteLine($"Q:");
+//		Q.print();
+//		WriteLine($"Q.transpose*Q:");
+//		(Q.transpose()*Q).print();		
+//		WriteLine($"R:");
+//		R.print();
+//		WriteLine($"Q*R:");
+//		(Q*R).print();
+//		WriteLine($"b:");
+//		b.print();
+//		WriteLine($"Ax:");
+//		(A*x).print();
+		WriteLine($"A.inverse:");
+		B.print();
+		WriteLine($"A.inverse*A:");
+		(A*B).print();
 		return 0;
 	}
 	public static Tuple<matrix, matrix> qr_gs_decomp(matrix A){
@@ -58,6 +63,17 @@ class lineq{
 			}
 		}
 		return x;
+	}
+	public static matrix qr_gs_inverse(matrix Q, matrix R){
+		int n = Q.size1;
+		matrix B = new matrix(n,n);
+		vector b = new vector(n);
+		for(int i=0;i<n;i++){
+			b[i] = 1;
+			B[i] = qr_gs_solve(Q,R,b);
+			b[i] = 0;
+		}
+		return B;
 	}
 }
 
