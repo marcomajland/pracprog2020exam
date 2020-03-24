@@ -1,0 +1,10 @@
+set term svg
+set out "Logplot.svg"
+set xlabel "t"
+set ylabel "log(Activity)"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key top right
+set style circle radius 0.045
+plot "logout1.txt" using 1:2 with circles fill solid title "Data points", "logout2.txt" using 1:2 with lines title "Least square curve fit"
