@@ -6,5 +6,4 @@ set xzeroaxis
 set yzeroaxis
 set tics out
 set key top right
-set style circle radius 0.045
-plot "data.txt" using 1:2 with circles fill solid title "Data points", "expout.txt" using 1:2 with lines title "Least square curve fit"
+plot "data.txt" using 1:2:($2/20) with yerrorbars title "Data points", "expout.txt" using 1:2 with lines title "Least square curve fit"
