@@ -4,7 +4,7 @@ public class lsq_qr{
 	public vector c;
 	public matrix cov;
 	public matrix A;
-	public double[] c_unc;
+	public double[] dc;
 	public lsq_qr(double[] x, double[] y, double[] dy, Func<double,double>[] F){
 		A = new matrix(x.Length,F.Length);
 		for(int i=0;i<F.Length;i++){
@@ -29,11 +29,11 @@ public class lsq_qr{
 			cov = new matrix(c.size,c.size);
 			cov = cov_matrix();
 		}
-		c_unc = new double[cov.size1];
-		for(int i=0;i<c_unc.Length;i++){
-			c_unc[i] = Sqrt(cov[i][i]);
+		dc = new double[cov.size1];
+		for(int i=0;i<dc.Length;i++){
+			dc[i] = Sqrt(cov[i][i]);
 		}
-		return c_unc;
+		return dc;
 	}
 	public vector get_c(){
 		return c;
@@ -45,11 +45,11 @@ public class lsq_qr{
 		}
 		return cov;
 	}
-	public double[] get_unc(){
-		if(c_unc == null){
-			c_unc = unc();
+	public double[] get_dc(){
+		if(dc == null){
+			dc = unc();
 		}
-		return c_unc;
+		return dc;
 	}
 }
 
