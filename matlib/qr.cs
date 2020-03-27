@@ -1,4 +1,5 @@
 using System;
+using static System.Console;
 public class qr{
 	public matrix Q;
 	public matrix R;
@@ -22,11 +23,11 @@ public class qr{
 		}
 	}
 	public vector solve(vector b){
-		vector x = new vector(n);
+		vector x = new vector(m); // CHANGED N TO M
 		vector y = Q.transpose()*b;
-		for(int i=n-1;i>=0;i--){
+		for(int i=m-1;i>=0;i--){ // CHANGED N TO M
 			x[i] = y[i]/R[i][i];
-			for(int j=i+1;j<n;j++){
+			for(int j=i+1;j<m;j++){ // CHANGED N TO M
 				x[i] -= (R[j][i]*x[j])/R[i][i];
 			}
 		}
@@ -43,8 +44,3 @@ public class qr{
 		return A_i;
 	}
 }
-
-
-
-
-
