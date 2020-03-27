@@ -2,13 +2,14 @@ using System;
 using static System.Console;
 class main{
 	public static int Main(){
-		string[] input = System.IO.File.ReadAllLines("table.txt");
-		int n = input.Length;
+		string[] xi = System.IO.File.ReadAllLines("x.txt");
+		string[] yi = System.IO.File.ReadAllLines("y.txt");
+		int n = xi.Length;
 		double[] x = new double[n];
 		double[] y = new double[n];
 		for(int i=0;i<n;i++){
-			x[i] = double.Parse(input[i]);
-			WriteLine($"{x[i]}");
+			x[i] = double.Parse(xi[i]);
+			y[i] = double.Parse(yi[i]);
 		}
 		var lspline_out = new System.IO.StreamWriter("lspline_out.txt",append:false);
 		var qspline_out = new System.IO.StreamWriter("qspline_out.txt",append:false);
