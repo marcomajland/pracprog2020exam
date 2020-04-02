@@ -1,6 +1,6 @@
 MATLIB = ../matlib
 all : eigen.exe plot.gpi plot_exact.gpi
-	mono $<
+	\time -f "%U" -ao time.txt mono $<
 	gnuplot plot.gpi
 	gnuplot plot_exact.gpi
 eigen.exe : eigen.cs lib.dll

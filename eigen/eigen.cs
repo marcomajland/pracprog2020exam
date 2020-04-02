@@ -3,13 +3,15 @@ using static System.Math;
 using static System.Console;
 class eigen{
 	public static int Main(){
-		matrix A = gen_matrix(3);
+		// A: Jacobi diagonalization with cyclic sweeps and quantum particle in a box
+		matrix A = gen_matrix(10);
 		matrix Ac = A.copy();
 		var res = new jacobi_diagonalization(A);
 		vector e = res.get_eigenvalues();
 		matrix V = res.get_eigenvectors();
 		matrix D = new matrix(A.size1,A.size1);
 		for(int i=0;i<A.size1;i++){D[i][i] = e[i];}
+		WriteLine("A: Jacobi diagonalization with cyclic sweeps and quantum particle in a box:");
 		WriteLine("------------------------------------------------");
 		WriteLine("Diagonalization of random real symmetric matrix:");
 		WriteLine("------------------------------------------------");
@@ -26,7 +28,22 @@ class eigen{
 		WriteLine("---------------------------------------------");
 		WriteLine("Diagonalization of quantum particle in a box:");
 		WriteLine("---------------------------------------------");
-		box();		
+		box();
+		Write("\n");
+		// B: Jacobi diagonalization eigenvalue-by-eigenvalue
+		WriteLine("B: Jacobi diagonalization eigenvalue-by-eigenvalue:");
+		WriteLine($"The amount of Jacobi rotations performed on random real symmetric matrix A in exercise A is {res.get_rotations()}.");
+		WriteLine("------------------------------");
+		WriteLine("Lowest eigenvalue computation:");
+		WriteLine("------------------------------");
+		int n = 5;
+		vector lowest_eigenvalues = res.lowest_eigenvalues(A, n);
+		WriteLine($"{n} lowest eigenvalues of A:");
+		lowest_eigenvalues.print();
+		WriteLine($"Eigenvalues of A for comparison:");
+		e.print();
+		vector lowest_eigenvalue = res.lowest_eigenvalues(A, 1);
+		WriteLine($"Amount of Jacobi rotations to diagonalize A is {res.get_rotations()} while amount of Jacobi rotations to obtain lowest eigenvalue of A is {res.get_single_row_rotations()}.");	
 		return 0;
 	}
 	public static matrix gen_matrix(int n){
