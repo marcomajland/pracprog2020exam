@@ -1,4 +1,0 @@
-A: Jacobi diagonalization with cyclic sweeps and quantum particle in a box:
-------------------------------------------------
-Diagonalization of random real symmetric matrix:
-------------------------------------------------

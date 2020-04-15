@@ -1,6 +1,6 @@
 MATLIB = ../matlib
 all : ode.exe cosplot.gpi sirplot.gpi
-	mono $< > output.txt
+	mono $<
 	gnuplot cosplot.gpi
 	gnuplot sirplot.gpi
 ode.exe : ode.cs lib.dll
