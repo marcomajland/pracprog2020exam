@@ -1,5 +1,5 @@
 set term svg
-set out "SIRPlot.svg"
+set out "SIRPlot2.svg"
 set xlabel "Time [days]"
 set ylabel "Number of individuals [million]"
 set xzeroaxis
