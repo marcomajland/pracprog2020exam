@@ -2,7 +2,12 @@ using System;
 using static System.Console;
 using static System.Math;
 public partial class integrator{
-	public static double integrate(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
+	public static int i=0;
+	public static Tuple<double,int> integrate(Func<double,double> f, double a, double b, double delta, double eps){
+		return Tuple.Create(trap_int(f,a,b,delta,eps),integrator.i);
+	}
+	public static double trap_int(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
+		integrator.i++;
 		double dx = (b-a)/n;
 		vector xs = new vector(n);
 		vector fs = new vector(n);
@@ -15,8 +20,14 @@ public partial class integrator{
 		double q = rect(xs, fs, dx);
 		double err = Abs(Q-q);
 		double tol = delta + eps*Abs(Q);
+		WriteLine($"{i}");
 		if(err < tol){return Q;}
-		else{return integrate(f,a,(a+b)/2,delta/Sqrt(2),eps) + integrate(f,(a+b)/2,b,delta/Sqrt(2),eps);}
+		else{return trap_int(f,a,(a+b)/2,delta/Sqrt(2),eps) + trap_int(f,(a+b)/2,b,delta/Sqrt(2),eps);}
+	}
+	public static Tuple<double,int> clenshaw_curtis(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
+		double ta = Acos(a); double tb = Acos(b);
+		Func<double,double> fcc = delegate(double t){return -f(Cos(t))*Sin(t);};
+		return integrate(fcc,ta,tb,delta,eps);
 	}
 	public static double rect(vector xs, vector fs, double dx){
 		double integral=0;
@@ -28,5 +39,6 @@ public partial class integrator{
 		for(int j=1;j<xs.size;j++){integral += 0.5*(fs[j-1] + fs[j])*dx;}
 		return integral;
 	}
+
 }
 

@@ -5,23 +5,40 @@ class integration{
 	public static int Main(){
 		double a = 0;
 		double b = 1;
-		double delta = 1e-3;
-		double eps = 1e-3;
+		double delta = 1e-2;
+		double eps = 1e-2;
 
-		double f1_int = integrator.integrate(f1,a,b,delta,eps);
-		double f1_err = f1_int - 2.0/3.0;
-		double f2_int = integrator.integrate(f2,a,b,delta,eps);
-		double f2_err = f2_int - PI;
-		
+		Tuple<double,int> f1_int = integrator.integrate(f1,a,b,delta,eps);
+		double f1_err = f1_int.Item1 - 2.0/3.0;
+		int f1_counts = f1_int.Item2;
+		Tuple<double,int>  f2_int = integrator.integrate(f2,a,b,delta,eps);
+		double f2_err = f2_int.Item1 - PI;
+		int f2_counts = f1_int.Item2;
+		Tuple<double,int> f3_int = integrator.clenshaw_curtis(f3,a,b,delta,eps);
+		double f3_err = f3_int.Item1 - 2.0;
+		int f3_counts = f1_int.Item2;
+		Tuple<double,int>  f4_int = integrator.clenshaw_curtis(f4,a,b,delta,eps);
+		double f4_err = f4_int.Item1 + 4.0;
+		int f4_counts = f1_int.Item2;
+
+	
 		WriteLine("Numerical integration");
-		WriteLine("--------------------------------------");
+		WriteLine("--------------------------------");
 		WriteLine("A: Recursive adaptive integrator");
-		WriteLine("--------------------------------------");
+		WriteLine("--------------------------------");
 		WriteLine($"The recursive adaptive integrator uses the trapezium rules and estimates local errors using embedded lower order rectangular rules. To test the numerical integration routine, the following definite integrals are calculated with absolute error delta = {delta} and relative error eps = {eps}. Errors are calculated as the difference between the numerical integration routine result and the analytical result.\n");
 		WriteLine($"Definite integral of sqrt(x) from {a} to {b} (analytical result = 2/3):");
-		WriteLine($"Numerical routine: {f1_int} with error {f1_err}\n");
+		WriteLine($"Numerical routine: {f1_int.Item1} with error {f1_err} and counts {f1_counts}\n");
 		WriteLine($"Definite integral of 4*sqrt(1-x*x) from {a} to {b} (analytical result = pi):");
-		WriteLine($"Numerical routine: {f2_int} with error {f2_err}");
+		WriteLine($"Numerical routine: {f2_int.Item1} with error {f2_err} and counts {f2_counts}\n");
+		WriteLine("---------------------------------------------------------------");
+		WriteLine("B: Open quadrature with Clenshaw-Curtis variable transformation");
+		WriteLine("---------------------------------------------------------------");
+		WriteLine($"The Clenshaw-Curtis variable transformation is implemented to improve numerical definite integrals with singularities at the end-points of the integration.\n");
+		WriteLine($"Definite integral of 1/sqrt(x) from {a} to {b} (analytical result = 2):");
+		WriteLine($"Numerical routine: {f3_int.Item1} with error {f3_err} and counts {f3_counts}\n");
+		WriteLine($"Definite integral of ln(x)/sqrt(x) from {a} to {b} (analytical result = -4):");
+		WriteLine($"Numerical routine: {f4_int.Item1} with error {f4_err} and counts {f4_counts}\n");
 	
 		return 0;
 	}
@@ -30,6 +47,12 @@ class integration{
 	};
 	public static Func<double,double> f2 = delegate(double x){		
 		return 4*Sqrt(1-x*x);
+	};
+	public static Func<double,double> f3 = delegate(double x){		
+		return 1/Sqrt(x);
+	};
+	public static Func<double,double> f4= delegate(double x){		
+		return Log(x)/Sqrt(x);
 	};
 
 
