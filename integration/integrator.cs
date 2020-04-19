@@ -4,7 +4,9 @@ using static System.Math;
 public partial class integrator{
 	public static int i=0;
 	public static Tuple<double,int> integrate(Func<double,double> f, double a, double b, double delta, double eps){
-		return Tuple.Create(trap_int(f,a,b,delta,eps),integrator.i);
+		double integral = trap_int(f,a,b,delta,eps);
+		int i = integrator.i;
+		return Tuple.Create(integral,i);
 	}
 	public static double trap_int(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
 		integrator.i++;
@@ -20,7 +22,6 @@ public partial class integrator{
 		double q = rect(xs, fs, dx);
 		double err = Abs(Q-q);
 		double tol = delta + eps*Abs(Q);
-		WriteLine($"{i}");
 		if(err < tol){return Q;}
 		else{return trap_int(f,a,(a+b)/2,delta/Sqrt(2),eps) + trap_int(f,(a+b)/2,b,delta/Sqrt(2),eps);}
 	}
