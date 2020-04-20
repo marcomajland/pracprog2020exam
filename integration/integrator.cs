@@ -4,9 +4,9 @@ using static System.Math;
 public partial class integrator{
 	public static int i=0;
 	public static Tuple<double,int> integrate(Func<double,double> f, double a, double b, double delta, double eps){
+		integrator.i = 0;
 		double integral = trap_int(f,a,b,delta,eps);
-		int i = integrator.i;
-		return Tuple.Create(integral,i);
+		return Tuple.Create(integral,integrator.i);
 	}
 	public static double trap_int(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
 		integrator.i++;
