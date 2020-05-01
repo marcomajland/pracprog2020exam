@@ -8,7 +8,7 @@ public partial class integrator{
 		double integral = trap_int(f,a,b,delta,eps);
 		return Tuple.Create(integral,integrator.i);
 	}
-	public static double trap_int(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
+	public static double trap_int(Func<double,double> f, double a, double b, double delta, double eps, int n = 999){
 		integrator.i++;
 		double dx = (b-a)/n;
 		vector xs = new vector(n);
@@ -23,9 +23,9 @@ public partial class integrator{
 		double err = Abs(Q-q);
 		double tol = delta + eps*Abs(Q);
 		if(err < tol){return Q;}
-		else{return trap_int(f,a,(a+b)/2,delta/Sqrt(2),eps) + trap_int(f,(a+b)/2,b,delta/Sqrt(2),eps);}
+		else{return trap_int(f,a,(a+b)/2.0,delta/Sqrt(2.0),eps) + trap_int(f,(a+b)/2.0,b,delta/Sqrt(2.0),eps);}
 	}
-	public static Tuple<double,int> clenshaw_curtis(Func<double,double> f, double a, double b, double delta, double eps, int n=999){
+	public static Tuple<double,int> clenshaw_curtis(Func<double,double> f, double a, double b, double delta, double eps){
 		double ta = Acos(a); double tb = Acos(b);
 		Func<double,double> fcc = delegate(double t){return -f(Cos(t))*Sin(t);};
 		return integrate(fcc,ta,tb,delta,eps);
@@ -42,4 +42,3 @@ public partial class integrator{
 	}
 
 }
-
