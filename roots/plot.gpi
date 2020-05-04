@@ -1,0 +1,24 @@
+set term svg
+set out "Plot.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+
+set xrange [0.5:1.5]
+set yrange [0.5:1.5]
+
+f1(x,y) = 2*(x-1) + 400*x*(x*x-y)
+f2(x,y) = 200*(y-x*x)
+
+#set view 90,0
+splot f1(x,y) with lines, f2(x,y) with lines
+
+
+
+#g(x,y) = 18*y - 14*x*x + 45
+#f(x,y) = x*x + 4*y*y - 9
+#g(x,y) = 18*y - 14*x*x + 45
+
