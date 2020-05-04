@@ -81,30 +81,39 @@ class integration{
 		WriteLine($"{f7_err}");
 		WriteLine($"{o8av_count}");
 
+		Tuple<double,int> trapint;
 		Tuple<double,int> CC;
 		double o8av_int;
 
-		double[] deltas = new double[] {1e-0, 1e-1, 1e-2, 1e-3, 1e-4};
-		//double[] deltas = new double[] {1e-0, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7, 1e-8, 1e-9, 1e-10, 1e-11, 1e-12, 1e-13, 1e-14, 1e-15};
+		double[] deltas = new double[] {1e-0, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7, 1e-8, 1e-9, 1e-10, 1e-11, 1e-12, 1e-13, 1e-14, 1e-15};
 		double[] CC_errors = new double[deltas.Length];
 		double[] CC_counts = new double[deltas.Length];
 		double[] o8av_errors = new double[deltas.Length];
 		double[] o8av_counts = new double[deltas.Length];
+		double[] trapint_errors = new double[deltas.Length];
+		double[] trapint_counts = new double[deltas.Length];
 		for(int j=0;j<deltas.Length;j++){
+			trapint = integrator.integrate(f5,a,b,deltas[j],0.0);
+			trapint_errors[j] = trapint.Item1 - PI;
+			trapint_counts[j] = trapint.Item2;		
 			CC = integrator.clenshaw_curtis(f5,a,b,deltas[j],0.0);
 			CC_errors[j] = CC.Item1 - PI;
 			CC_counts[j] = CC.Item2;		
 			o8av_count=0;
 			o8av_int = quad.o8av(f5_o8av,a,b,deltas[j],0.0);		
 			o8av_errors[j] = o8av_int - PI;
+			o8av_counts[j] = o8av_count;
 		}
-
-		var outfile = new System.IO.StreamWriter($"outfile.txt",append:false);
+		var error_out = new System.IO.StreamWriter($"error_out.txt",append:false);
 		for(int j=0;j<deltas.Length;j++){
-			outfile.WriteLine($"{deltas[j]} {CC_errors[j]} {o8av_errors[j]}");
+			error_out.WriteLine($"{deltas[j]} {Abs(trapint_errors[j])} {Abs(CC_errors[j])} {Abs(o8av_errors[j])}");
 		}
-		outfile.Close();
-
+		error_out.Close();
+		var counts_out = new System.IO.StreamWriter($"counts_out.txt",append:false);
+		for(int j=0;j<deltas.Length;j++){
+			counts_out.WriteLine($"{deltas[j]} {trapint_counts[j]} {CC_counts[j]} {o8av_counts[j]}");
+		}
+		counts_out.Close();
 		return 0;
 	}
 	public static Func<double,double> f1 = delegate(double x){		
