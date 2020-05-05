@@ -1,0 +1,3 @@
+Notes:
+- ODE routine must be revised to account for integration around integration end point
+- In the roots problems, the ODE routine used to calculate roots of auxiliary function of radial Schrodinger equation must be one's own ODE routine rather than Dmitri's routine
