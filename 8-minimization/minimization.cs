@@ -27,6 +27,16 @@ class minimization{
 		WriteLine($"Himmelblau function (steps: {steps_himmelblau}):");
 		WriteLine($"x: {xi_himmelblau[0]}");
 		WriteLine($"y: {xi_himmelblau[1]}");
+
+		Func<vector,double> D = delegate(vector x){
+		};
+
+
 		return 0;
 	}
+	public static double F(double E, double m, double gamma, double A){
+		return A/((E-m)*(E-m) + gamma*gamma/4);
+	}
+
+
 }
