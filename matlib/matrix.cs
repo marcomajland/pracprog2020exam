@@ -207,6 +207,11 @@ public bool approx(matrix B,double acc=1e-6, double eps=1e-6){
 				return false;
 	return true;
 }
+public void update(vector u, vector v, double s=1){
+	for(int i=0;i<size1;i++)
+	for(int j=0;j<size2;j++)
+		this[i,j]+=u[i]*v[j]*s;
+	}
 
 }//matrix
 
