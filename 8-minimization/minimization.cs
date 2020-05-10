@@ -26,12 +26,32 @@ class minimization{
 		WriteLine($"y: {xi_rosenbrock[1]}\n");
 		WriteLine($"Himmelblau function (steps: {steps_himmelblau}):");
 		WriteLine($"x: {xi_himmelblau[0]}");
-		WriteLine($"y: {xi_himmelblau[1]}");
+		WriteLine($"y: {xi_himmelblau[1]}\n");
 
+		string[] Ei = System.IO.File.ReadAllLines("E.txt");
+		string[] sigmai = System.IO.File.ReadAllLines("sigma.txt");
+		string[] errori = System.IO.File.ReadAllLines("error.txt");
+		vector E = new vector(Ei.Length);
+		vector sigma = new vector(Ei.Length);
+		vector error = new vector(Ei.Length);
+		for (int i=0;i<Ei.Length;i++){
+			E[i] = double.Parse(Ei[i]);
+			sigma[i] = double.Parse(sigmai[i]);
+			error[i] = double.Parse(errori[i]);
+		}
 		Func<vector,double> D = delegate(vector x){
+			double val = 0;
+			for(int i=0;i<E.size;i++){
+				val += (F(E[i],x[0],x[1],x[2]) - sigma[i])*(F(E[i],x[0],x[1],x[2]) - sigma[i]);
+			}
+			return val;
 		};
-
-
+		vector xi_higgs = new vector(125.0,4.0,15.0);	
+		int steps_higgs = qnewton.minimize(D, ref xi_higgs, 1e-6);
+		WriteLine($"Higgs (steps: {steps_higgs}):");
+		WriteLine($"m: {xi_higgs[0]}");
+		WriteLine($"gamma: {xi_higgs[1]}");
+		WriteLine($"A: {xi_higgs[2]}");
 		return 0;
 	}
 	public static double F(double E, double m, double gamma, double A){
