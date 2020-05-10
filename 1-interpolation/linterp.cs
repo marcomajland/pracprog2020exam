@@ -21,6 +21,6 @@ public class linterp{
 	public double integral(double z){
 		int i = misc.binary_search(x, z);
 //		return (y[i] - p[i]*x[i])*z + 1/2*p[i]*z*z;
-		return y[i]*z + 1/2*p[i]*(z - x[i])*(z - x[i]);
+		return y[i]*z + 1.0/2.0*p[i]*(z - x[i])*(z - x[i]);
 	}
 }

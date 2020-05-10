@@ -27,7 +27,8 @@ public class qspline{
 		return 0;
 	}
 	public double integral(double z){
-		return 0;
+		int i = misc.binary_search(x, z);
+		return y[i]*z + 1/2*b[i]*(z - x[i])*(z - x[i]) + 1/3*c[i]*(z-x[i])*(z-x[i])*(z-x[i]);
 	}
 }
 

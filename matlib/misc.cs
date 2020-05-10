@@ -29,6 +29,13 @@ public partial class misc{
 		}
 		return i;	
 	}
+	public static void generate_data(Func<double,double> f, double xmin, double xmax, double dx, string destination){
+		var data = new System.IO.StreamWriter(destination,append:false);
+		for(double _x=xmin;_x<=xmax;_x+=dx){
+			data.WriteLine($"{_x} {f(_x)}");
+		}
+		data.Close();
+	}
 }
 
 
