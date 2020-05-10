@@ -28,7 +28,11 @@ public class qspline{
 	}
 	public double integral(double z){
 		int i = misc.binary_search(x, z);
-		return y[i]*z + 1/2*b[i]*(z - x[i])*(z - x[i]) + 1/3*c[i]*(z-x[i])*(z-x[i])*(z-x[i]);
+		double integral = 0;
+		Func<int,double,double> F = delegate(int j, double dz){return y[j]*dz + 1.0/2.0*b[j]*dz*dz + 1.0/3.0*c[j]*dz*dz*dz;};
+		for(int j=0;j<i;j++){integral += F(j, x[j+1] - x[j]);}
+		integral += F(i, z - x[i]);
+		return integral;
 	}
 }
 

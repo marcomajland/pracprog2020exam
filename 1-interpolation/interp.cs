@@ -32,6 +32,11 @@ class main{
 			cspline_out.WriteLine($"{z} {res3.spline(z)}");
 		}
 		cspline_out.Close();
+
+		WriteLine($"{res1.integral(PI)}");
+		WriteLine($"{res2.integral(PI)}");
+		WriteLine($"{res3.integral(PI)}");
+
 		return 0;
 	}
 	public static Func<double,double> f1 = delegate(double x){return Sin(x);};
