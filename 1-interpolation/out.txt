@@ -1,0 +1,15 @@
+In the following, the interpolation routines are compared with their integration values.
+For comparison, f(x) = sin(x) is interpolated and integrated from 0 to 2*pi (analytical value: 0).
+
+Linear interpolation:
+Integration result:       -0.000471175847728045
+Error:                    0.000471175847728045
+
+Quadratic interpolation:
+Integration result:       -0.00139313718147416
+Error:                    0.00139313718147416
+
+Cubic interpolation:
+Integration result:       -4.47246846342619E-06
+Error:                    4.47246846342619E-06
+
