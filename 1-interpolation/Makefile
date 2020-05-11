@@ -1,13 +1,17 @@
 MATLIB = ../matlib
-all : interp.exe lspline.gpi qspline.gpi cspline.gpi lspline_int.gpi
+LIBRARY = ./library
+A = A\:\ Linear\ spline
+B = B\:\ Quadratic\ spline
+C = C\:\ Cubic\ spline
+all : main.exe plot.gpi
 	mono $<
-	gnuplot lspline.gpi
-	gnuplot qspline.gpi
-	gnuplot cspline.gpi
-	gnuplot lspline_int.gpi
-interp.exe : interp.cs lib.dll
+	gnuplot plot.gpi
+main.exe : main.cs lib.dll
 	mcs $< -r:lib.dll
-lib.dll : $(MATLIB)/quado8.cs $(MATLIB)/misc.cs qspline.cs linterp.cs cspline.cs
+lib.dll : $(MATLIB)/quado8.cs $(MATLIB)/misc.cs $(LIBRARY)/qspline.cs $(LIBRARY)/lspline.cs $(LIBRARY)/cspline.cs
 	mcs $^ -t:library -out:$@
 clean :
-	rm --force *.exe *.svg *.dll
+	rm --force *.exe *.svg *.dll *.txt
+	cd $(A); rm --force *.svg *.txt
+	cd $(B); rm --force *.svg *.txt
+	cd $(C); rm --force *.svg *.txt

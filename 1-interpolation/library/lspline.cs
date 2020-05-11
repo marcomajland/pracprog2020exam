@@ -1,10 +1,10 @@
 using System;
 using static System.Console;
-public class linterp{
+public class lspline{
 	double[] x;
 	double[] y;
 	double[] p;
-	public linterp(double[] xs, double[] ys){
+	public lspline(double[] xs, double[] ys){
 		x = xs; y = ys;
 		p = new double[xs.Length-1];
 		Func<int,double> pf = (i) => (y[i+1]-y[i])/(x[i+1]-x[i]);
