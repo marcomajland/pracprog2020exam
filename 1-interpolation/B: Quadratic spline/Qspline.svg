@@ -1725,10 +1725,10 @@
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
-	<g id="gnuplot_plot_1c" ><title>Integral</title>
+	<g id="gnuplot_plot_1c" ><title>Derivative</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(498.9,381.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
-		<text><tspan font-family="Arial" >Integral</tspan></text>
+		<text><tspan font-family="Arial" >Derivative</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -1852,10 +1852,10 @@
 		L534.0,408.2 L534.5,408.4 L535.0,408.6 L535.4,408.9 L535.9,409.1 L536.4,409.3 L536.9,409.5 L537.4,409.7
 		L537.9,410.0  '/></g>
 	</g>
-	<g id="gnuplot_plot_2c" ><title>y = -cos(x) + 1</title>
+	<g id="gnuplot_plot_2c" ><title>y = cos(x)</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(498.9,399.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
-		<text><tspan font-family="Arial" >y = -cos(x) + 1</tspan></text>
+		<text><tspan font-family="Arial" >y = cos(x)</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">

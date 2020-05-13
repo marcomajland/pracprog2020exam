@@ -7,11 +7,10 @@ public class lspline{
 	public lspline(double[] xs, double[] ys){
 		x = xs; y = ys;
 		p = new double[xs.Length-1];
-		Func<int,double> pf = (i) => (y[i+1]-y[i])/(x[i+1]-x[i]);
-		for(int i=0;i<xs.Length-1;i++){p[i] = pf(i);}
+		for(int i=0;i<xs.Length-1;i++){p[i] = (y[i+1]-y[i])/(x[i+1]-x[i]);} // Calculate slope values
 	}
 	public double spline(double z){
-		int i = misc.binary_search(x, z);	
+		int i = misc.binary_search(x, z);
 		return y[i] + p[i]*(z - x[i]);
 	}
 	public double derivative(double z){

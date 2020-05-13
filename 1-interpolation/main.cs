@@ -38,7 +38,7 @@ class main{
 		// Output files for cubic interpolation
 		var res3 = new cspline(x,y);
 		for(double z=xmin;z<=xmax;z+=dz){
-			cspline_out.WriteLine($"{z} {res3.spline(z)} {res3.integral(z)}");
+			cspline_out.WriteLine($"{z} {res3.spline(z)} {res3.integral(z)} {res3.derivative(z)}");
 		}
 		cspline_out.Close();
 		// Output files for comparsion of interpolation routines in terms of the integration values

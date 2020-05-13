@@ -52,7 +52,9 @@ public class cspline{
 		return y[i] + b[i]*(z - x[i]) + c[i]*(z-x[i])*(z-x[i]) + d[i]*(z-x[i])*(z-x[i])*(z-x[i]);
 	}
 	public double derivative(double z){
-		return 0;
+		int i = misc.binary_search(x,z);
+		double dx = z - x[i];
+		return b[i] + 2*c[i]*dx + 3*d[i]*dx*dx;
 	}
 	public double integral(double z){
 		int i = misc.binary_search(x, z);
