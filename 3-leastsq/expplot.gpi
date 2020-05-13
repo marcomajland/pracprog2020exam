@@ -1,9 +1,0 @@
-set term svg
-set out "Expplot.svg"
-set xlabel "t"
-set ylabel "Activity"
-set xzeroaxis
-set yzeroaxis
-set tics out
-set key top right
-plot "data.txt" using 1:2:($2/20) with yerrorbars lc rgbcolor "black" title "Data points", "expout.txt" using 1:2 with lines lc rgbcolor "blue" title "Least square curve fit", "expout.txt" using 1:3 with lines linetype 0 lc rgbcolor "red" title "+", "expout.txt" using 1:4 with lines linestyle 0 lc rgbcolor "red" title "-"

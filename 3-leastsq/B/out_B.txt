@@ -1,0 +1,14 @@
+---------------------------------------
+ThX decay fit using least square method
+---------------------------------------
+Fitting parameters:
+a:                142.404080608249
+lambda:           -0.171379430616684
+Fitting t_1/2:    4.04451793348687(0.0834378445274395) days
+Modern t_1/2:     3.66 days
+The modern value of t_1/2 seems to be within the uncertainty of the fitting t_1/2
+
+Covariance matrix:
+   0.00089  -8.75e-05 
+ -8.75e-05   1.25e-05 
+

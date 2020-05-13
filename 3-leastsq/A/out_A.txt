@@ -1,0 +1,8 @@
+---------------------------------------
+ThX decay fit using least square method
+---------------------------------------
+Fitting parameters:
+a:                142.404080608249
+lambda:           -0.171379430616684
+Fitting t_1/2:    4.04451793348687 days
+Modern t_1/2:     3.66 days

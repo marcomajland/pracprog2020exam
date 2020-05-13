@@ -52,7 +52,3 @@ public class lsq_qr{
 		return dc;
 	}
 }
-
-
-
-
