@@ -9,6 +9,7 @@ class main{
 		double xmax = 3*PI;	// Maximum x value
 		misc.generate_data(f1, xmin, xmax, 0.5, "./datafiles/data.txt");	// Generate tabulated function values
 		misc.generate_data(f2, xmin, xmax, 0.5, "./datafiles/data2.txt");	// Generate tabulated integration values
+		misc.generate_data(f3, xmin, xmax, 0.5, "./datafiles/data3.txt");	// Generate tabulated integration values
 		// Load tabulated data values into double arrays
 		List<double[]> data = misc.load_data("./datafiles/data.txt");
 		double[] x = data[0];
@@ -31,7 +32,7 @@ class main{
 		// Output files for quadratic interpolation
 		var res2 = new qspline(x,y);
 		for(double z=xmin;z<=xmax;z+=dz){
-			qspline_out.WriteLine($"{z} {res2.spline(z)} {res2.integral(z)}");
+			qspline_out.WriteLine($"{z} {res2.spline(z)} {res2.integral(z)} {res2.derivative(z)}");
 		}
 		qspline_out.Close();
 		// Output files for cubic interpolation
@@ -57,6 +58,7 @@ class main{
 	}
 	public static Func<double,double> f1 = delegate(double x){return Sin(x);};
 	public static Func<double,double> f2 = delegate(double x){return -Cos(x)+1;};
+	public static Func<double,double> f3 = delegate(double x){return Cos(x);};
 }
 
 
