@@ -1,26 +1,23 @@
 using System;
 using static System.Console;
 using static System.Math;
+using System.Collections.Generic;
 class lsq{
 	public static int Main(){
 		// Loading raw data and converting to logarithmic values 
-		string[] xs = System.IO.File.ReadAllLines("x.txt"); // Raw x data
-		string[] ys = System.IO.File.ReadAllLines("y.txt"); // Raw y data
-		double[] x = new double[xs.Length];
-		double[] y = new double[xs.Length];
-		for (int i=0;i<x.Length;i++){
-			x[i] = double.Parse(xs[i]);
-			y[i] = Log(double.Parse(ys[i])); // Logarithmic value
-		}
+		List<double[]> data = misc.load_data("./data.txt");
+		double[] x = data[0]; double[] y = data[1];
+		for (int i=0;i<y.Length;i++){y[i] = Log(y[i]);} // Logarithmic value
 		double[] dy = new double[y.Length]; // Allocate array for y errors
 		for(int i=0;i<dy.Length;i++){dy[i]= (Exp(y[i])/20)/Exp(y[i]);} // Logarithmic y errors
 		Func<double,double>[] F = new Func<double,double>[] {s => 1, s => s}; // Array of fitting functions
+	
 		var res = new lsq_qr(x,y,dy,F); // Variable storing instance of least square class
 		vector c = res.get_c(); // Retrieve expansion coefficients of fitting functions
 		double a = Exp(c[0]);
 		double l = c[1];
 		matrix cov = res.get_cov();
-		cov.print();
+
 		double[] dc = res.get_dc();
 		double dl = Log(2)/(l*l)*dc[1]; // Uncertainty in t 1/2 obtained using error of propagation
 		WriteLine("Fitting parameters:");
@@ -66,10 +63,35 @@ class lsq{
 			};
 		return f;
 	}
-
-
 }
 
 
+
+/*
+		var outfile = new System.IO.StreamWriter("./out_A.txt",append:false);
+		outfile.WriteLine($"--------------------------------");
+		outfile.WriteLine($"1: QR decomposition");
+		outfile.WriteLine($"--------------------------------");
+		outfile.WriteLine($"Random tall matrix A:");
+		for(int ir=0;ir<A.size1;ir++){for(int ic=0;ic<A.size2;ic++){
+			outfile.Write("{0,10:g3} ", A[ir,ic]);}
+			outfile.WriteLine("");}
+		outfile.WriteLine("");
+		outfile.WriteLine($"Upper triangular matrix R:");
+		for(int ir=0;ir<R.size1;ir++){for(int ic=0;ic<R.size2;ic++){
+			outfile.Write("{0,10:g3} ", R[ir,ic]);}
+			outfile.WriteLine("");}
+		outfile.WriteLine("");
+		outfile.WriteLine($"Q.transpose()*Q:");
+		for(int ir=0;ir<QTQ.size1;ir++){for(int ic=0;ic<QTQ.size2;ic++){
+			outfile.Write("{0,10:g3} ", QTQ[ir,ic]);}
+			outfile.WriteLine("");}
+		outfile.WriteLine("");
+		outfile.WriteLine($"Q*R:");
+		for(int ir=0;ir<QR.size1;ir++){for(int ic=0;ic<QR.size2;ic++){
+			outfile.Write("{0,10:g3} ", QR[ir,ic]);}
+			outfile.WriteLine("");}
+		outfile.WriteLine("");
+*/
 
 
