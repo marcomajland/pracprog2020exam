@@ -1,9 +1,18 @@
 set term svg
 set out "EigenvectorsPlot.svg"
-set xlabel "x"
-set ylabel "Psi(x)"
+set xlabel "chi"
+set ylabel "Psi(chi)"
 set xzeroaxis
 set yzeroaxis
 set tics out
 set key bottom right
-plot "eigenvectors0.txt" using 1:2 with lines lc rgbcolor "black" title "Ground state", "eigenvectors1.txt" using 1:2 with lines lc rgbcolor "green" title "First excited state", "eigenvectors2.txt" using 1:2 with lines lc rgbcolor "blue" title "Second excited state"
+set multiplot layout 2,1
+set xrange [0:1]
+f1(x) = sqrt(2)*cos(pi*x - pi/2)
+f2(x) = sqrt(2)*sin(2*pi*x+pi)
+f3(x) = sqrt(2)*cos(3*pi*x - pi/2)
+f4(x) = sqrt(2)*sin(4*pi*x+pi)
+set title "Numerical wavefunctions"
+plot "./plot_files/eigenvectors0.txt" using 1:2 with lines lc rgbcolor "black" title "Ground state", "./plot_files/eigenvectors1.txt" using 1:2 with lines lc rgbcolor "green" title "First excited state", "./plot_files/eigenvectors2.txt" using 1:2 with lines lc rgbcolor "blue" title "Second excited state"
+set title "Analytical wavefunctions"
+plot f1(x) lc rgbcolor "black" title "Ground state", f2(x) lc rgbcolor "green" title "First excited state", f3(x) lc rgbcolor "blue" title "Second excited state"

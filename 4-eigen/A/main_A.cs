@@ -46,23 +46,23 @@ class eigen{
 		outfile.WriteLine($"-----------------------------------------");
 		outfile.WriteLine($"Quantum particle in a box");
 		outfile.WriteLine($"-----------------------------------------");
+		int n = 20;
 		outfile.WriteLine("Eigenvalues of the Hamiltonian (k, calculated, exact, error):");
-		for(int k=0;k<20/3;k++){
+		for(int k=0;k<n/3;k++){
 			double exact = PI*PI*(k+1)*(k+1);
 			double calculated = boxres.Item1[k];
 			outfile.WriteLine($"{k}      {calculated}      {exact}      {exact-calculated}");
 		}
-/*		for(int k=0;k<3;k++){
-			var eigenvectors = new System.IO.StreamWriter($"eigenvectors{k}.txt",append:false);
+		for(int k=0;k<3;k++){
+			var eigenvectors = new System.IO.StreamWriter($"./plot_files/eigenvectors{k}.txt",append:false);
 			eigenvectors.WriteLine($"{0} {0} {0}");
 			for(int i=0;i<n;i++){
-				eigenvectors.WriteLine($"{(i+1.0)/(n+1)} {V[k,i]} {Psi(k+1,(i+1.0)/(n+1))}");
+				eigenvectors.WriteLine($"{(i+1.0)/(n+1)} {boxres.Item2[k,i]} {Psi(k+1,(i+1.0)/(n+1))}");
 			}
 			eigenvectors.WriteLine($"{1} {0} {0}");
 			eigenvectors.Close();
-		}
 
-*/
+		}
 		outfile.Close();
 
 		return 0;
