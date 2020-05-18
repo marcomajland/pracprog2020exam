@@ -1,1 +1,2 @@
 - Must do third order polynomial curve fitting for amount of operations of Jacobi diagonalization routine in exercise B
+- The eigenvalue-by-eigenvalue routine for lowest eigenvalue only works better than cyclic sweeps method for high matrix dimensions

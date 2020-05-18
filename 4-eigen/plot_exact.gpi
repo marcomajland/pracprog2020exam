@@ -1,9 +1,0 @@
-set term svg
-set out "EigenvectorsExactPlot.svg"
-set xlabel "x"
-set ylabel "Psi(x)"
-set xzeroaxis
-set yzeroaxis
-set tics out
-set key bottom right
-plot "eigenvectors0.txt" using 1:3 with lines lc rgbcolor "black" title "Ground state", "eigenvectors1.txt" using 1:3 with lines lc rgbcolor "green" title "First excited state", "eigenvectors2.txt" using 1:3 with lines lc rgbcolor "blue" title "Second excited state"

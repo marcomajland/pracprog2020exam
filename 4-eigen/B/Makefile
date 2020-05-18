@@ -1,6 +1,6 @@
 MATLIB = ../../matlib
 all : main_B.exe plot.gpi
-	\time -f "%U" -ao time.txt mono $<
+	mono $<
 	gnuplot plot.gpi
 main_B.exe : main_B.cs lib.dll
 	mcs $< -r:lib.dll

@@ -5,30 +5,30 @@ public class jacobi_diagonalization{
 	public matrix V;
 	public matrix Ac;
 	public int rotations;
-	public int single_row_rotations;
-	public jacobi_diagonalization(matrix A){
-		e = new vector(A.size1); // Vector to contain eigenvalues
-		V = new matrix(A.size1,A.size1); V.set_identity(); // Matrix to contain eigenvectors
-		int changed; int sweeps = 0; rotations = 0;
-		do{changed = 0; sweeps += 1;
-			for(int p=0;p<A.size1;p++){for(int q=p+1;q<A.size1;q++){
+	public jacobi_diagonalization(matrix A, string routine="cyclic", int n=0){
+		if(routine=="cyclic"){
+			e = new vector(A.size1); // Vector to contain eigenvalues
+			V = new matrix(A.size1,A.size1); V.set_identity(); // Matrix to contain eigenvectors
+			int changed; int sweeps = 0; rotations = 0;
+			do{changed = 0; sweeps += 1;
+				for(int p=0;p<A.size1;p++){for(int q=p+1;q<A.size1;q++){
 					rotations += 1;
 					changed = rotation(p,q,A);
-				}				
-			}
-		}while(changed != 0);
-		for(int i=0;i<A.size1;i++){e[i] = A[i][i];}
-	}
-	public vector lowest_eigenvalues(matrix A, int n){ // n denotes the number of lowest eigenvalues to calculate
-		e = new vector(n); // Vector to contain eigenvalues
-		int changed; single_row_rotations = 0;
-		for(int p=0;p<n;p++){
-			do{changed = 0; for(int q=p+1;q<A.size1;q++){
-				single_row_rotations += 1;
-				changed = single_row_rotation(p, q, A);
-			}}while(changed != 0);}
-		for(int i=0;i<n;i++){e[i] = A[i][i];}
-		return e;
+					}				
+				}
+			}while(changed != 0);
+			for(int i=0;i<A.size1;i++){e[i] = A[i][i];}
+		}
+		if(routine=="value"){
+			e = new vector(n); // Vector to contain eigenvalues
+			int changed; rotations = 0;
+			for(int p=0;p<n;p++){
+				do{changed = 0; for(int q=p+1;q<A.size1;q++){
+					rotations += 1;
+					changed = single_row_rotation(p, q, A);
+				}}while(changed != 0);}
+			for(int i=0;i<n;i++){e[i] = A[i][i];}
+		}		
 	}
 	public int rotation(int p, int q, matrix A){
 		double App = A[p][p], Aqq = A[q][q], Apq = A[p][q];
@@ -99,9 +99,6 @@ public class jacobi_diagonalization{
 	}
 	public int get_rotations(){
 		return rotations;
-	}
-	public int get_single_row_rotations(){
-		return single_row_rotations;
 	}
 }
 
