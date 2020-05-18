@@ -103,13 +103,6 @@ public class jacobi_diagonalization{
 	public int get_single_row_rotations(){
 		return single_row_rotations;
 	}
-
-
-
-
 }
-
-
-
 
 

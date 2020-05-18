@@ -1,0 +1,10 @@
+set term svg
+set out "DiagonalizationScale.svg"
+set xlabel "n"
+set ylabel "Normalized amount of operations"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+set style circle radius 0.1
+plot "./plot_files/diag_scale.txt" using 1:2 with circles fill solid
