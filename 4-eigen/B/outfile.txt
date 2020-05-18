@@ -1,0 +1,8 @@
+-----------------------------------------------
+Jacobi diagonalization eigenvalue-by-eigenvalue
+-----------------------------------------------
+A random symmetric matrix A of dimension 10x10 is generated.
+5 lowest eigenvalues of A:
+     -13.3 
+Eigenvalues of A for comparison:
+     -13.3 
