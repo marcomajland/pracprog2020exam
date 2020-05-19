@@ -1,0 +1,8 @@
+-------------
+The SIR model
+-------------
+The SIR model of the covid-19 epidemic development of Denmark is solved numerically for the following initial value conditions:
+Population (N): 5.8 million
+Average recovery time (T_r): 7 days
+
+As can be seen in figure SIRPlot.svg, the average contact time (T_c) is varied throughout the figure to investigate the effect of social distancing. Clearly, the effect of larger T_c yields a more flat green curve.

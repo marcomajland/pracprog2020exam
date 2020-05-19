@@ -1,9 +1,25 @@
 set term svg
 set out "SIRPlot.svg"
-set xlabel "Time [days]"
-set ylabel "Number of individuals [million]"
 set xzeroaxis
 set yzeroaxis
 set tics out
-set key bottom right
-plot "sir_out_T_c_0.25.txt" using 1:2 with lines title "Susceptible", "sir_out_T_c_0.25.txt" using 1:3 with lines title "Infectious", "sir_out_T_c_0.25.txt" using 1:4 with lines title "Removed", "sir_out_T_c_0.75.txt" using 1:2 with lines linestyle 0 lc rgbcolor "red" title "Susceptible 0.75", "sir_out_T_c_0.75.txt" using 1:3 with lines linestyle 0 lc rgbcolor "red" title "Infectious 0.75", "sir_out_T_c_0.75.txt" using 1:4 with lines linestyle 0 lc rgbcolor "red" title "Removed 0.75"
+set multiplot layout 3,1
+set xrange [0:20]
+set yrange [0:6.2]
+unset xlabel
+unset ylabel
+unset key
+f(x) = 5.8
+set label "T_c = 0.25" at 16,3.1
+plot "./plot_files/sir_out_0.25.txt" using 1:2 with lines lc rgbcolor "black", "./plot_files/sir_out_0.25.txt" using 1:3 with lines lc rgbcolor "green", "./plot_files/sir_out_0.25.txt" using 1:4 with lines lc rgbcolor "blue", f(x) with lines linetype 0 lc rgbcolor "black"
+unset label
+set ylabel "Number of individuals [million]"
+set label "T_c = 0.75" at 16,3.1
+plot "./plot_files/sir_out_0.75.txt" using 1:2 with lines lc rgbcolor "black", "./plot_files/sir_out_0.75.txt" using 1:3 with lines lc rgbcolor "green", "./plot_files/sir_out_0.75.txt" using 1:4 with lines lc rgbcolor "blue", f(x) with lines linetype 0 lc rgbcolor "black"
+unset label
+unset ylabel
+set xlabel "Time [days]"
+set key outside bottom
+set label "T_c = 1.25" at 16,3.1
+plot "./plot_files/sir_out_1.25.txt" using 1:2 with lines lc rgbcolor "black" title "Susceptible", "./plot_files/sir_out_1.25.txt" using 1:3 with lines lc rgbcolor "green" title "Infectious", "./plot_files/sir_out_1.25.txt" using 1:4 with lines lc rgbcolor "blue" title "Recovered", f(x) with lines linetype 0 lc rgbcolor "black" title "Population size"
+
