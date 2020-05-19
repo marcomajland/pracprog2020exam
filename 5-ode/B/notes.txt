@@ -1,1 +1,0 @@
-- ODE solution to y'' = -y has a periodic error which is unexpected
