@@ -8,18 +8,22 @@ class integration{
 		double delta = 1e-3;
 		double eps = 1e-3;
 
-		Tuple<double,int> f1_int = integrator.integrate(f1,a,b,delta,eps);
-		double f1_err = f1_int.Item1 - 2.0/3.0;
-		int f1_counts = f1_int.Item2;
-		Tuple<double,int>  f2_int = integrator.integrate(f2,a,b,delta,eps);
-		double f2_err = f2_int.Item1 - PI;
-		int f2_counts = f2_int.Item2;
-		Tuple<double,int> f3_int = integrator.clenshaw_curtis(f3,a,b,delta,eps);
+		Tuple<double,int> f3_int = integrator.integrate(f3,a,b,delta,eps);
 		double f3_err = f3_int.Item1 - 2.0;
 		int f3_counts = f3_int.Item2;
-		Tuple<double,int>  f4_int = integrator.clenshaw_curtis(f4,a,b,delta,eps);
+		Tuple<double,int> f3_int_cc = integrator.clenshaw_curtis(f3,a,b,delta,eps);
+		double f3_err_cc = f3_int_cc.Item1 - 2.0;
+		int f3_counts_cc = f3_int_cc.Item2;
+
+		Tuple<double,int>  f4_int = integrator.integrate(f4,a,b,delta,eps);
 		double f4_err = f4_int.Item1 + 4.0;
 		int f4_counts = f4_int.Item2;
+		Tuple<double,int>  f4_int_cc = integrator.clenshaw_curtis(f4,a,b,delta,eps);
+		double f4_err_cc = f4_int_cc.Item1 + 4.0;
+		int f4_counts_cc = f4_int_cc.Item2;
+		
+
+
 		Tuple<double,int>  f5_int = integrator.integrate(f5,a,b,delta,eps);
 		double f5_err = f5_int.Item1 - PI;
 		int f5_counts = f5_int.Item2;
@@ -34,36 +38,30 @@ class integration{
 		};
 		double f7_int = quad.o8av(f5_o8av,a,b,delta,eps);
 		double f7_err = f7_int - PI;
-	
-		WriteLine("Numerical integration");
-		WriteLine("--------------------------------");
-		WriteLine("A: Recursive adaptive integrator");
-		WriteLine("--------------------------------");
-		WriteLine($"The recursive adaptive integrator uses the trapezium rules and estimates local errors using embedded lower order rectangular rules. To test the numerical integration routine, the following definite integrals are calculated with absolute error delta = {delta} and relative error eps = {eps}. Errors are calculated as the difference between the numerical integration routine result and the analytical result.\n");
-		WriteLine($"Definite integral of sqrt(x) from {a} to {b}:");
-		WriteLine($"Numerical routine result:       {f1_int.Item1}");
-		WriteLine($"Analytical result:              2/3");
-		WriteLine($"Error:                          {f1_err}");
-		WriteLine($"Integration counts:             {f1_counts}\n");
-		WriteLine($"Definite integral of 4*sqrt(1-x*x) from {a} to {b}:");
-		WriteLine($"Numerical routine result:       {f2_int.Item1}");
-		WriteLine($"Analytical result:              pi");
-		WriteLine($"Error:                          {f2_err}");
-		WriteLine($"Integration counts:             {f2_counts}\n");
-		WriteLine("---------------------------------------------------------------");
-		WriteLine("B: Open quadrature with Clenshaw-Curtis variable transformation");
-		WriteLine("---------------------------------------------------------------");
-		WriteLine($"The Clenshaw-Curtis variable transformation is implemented to improve numerical definite integrals with singularities at the end-points of the integration.\n");
-		WriteLine($"Definite integral of 1/sqrt(x) from {a} to {b}:");
-		WriteLine($"Numerical routine result:       {f3_int.Item1}");
-		WriteLine($"Analytical result:              2");
-		WriteLine($"Error:                          {f3_err}");
-		WriteLine($"Integration counts:             {f3_counts}\n");
-		WriteLine($"Definite integral of ln(x)/sqrt(x) from {a} to {b}:");
-		WriteLine($"Numerical routine result:       {f4_int.Item1}");
-		WriteLine($"Analytical result:              -4");
-		WriteLine($"Error:                          {f4_err}");
-		WriteLine($"Integration counts:             {f4_counts}\n");	
+
+		var outfile = new System.IO.StreamWriter($"outfile.txt",append:false);
+		outfile.WriteLine("------------------------------------------------------------");
+		outfile.WriteLine("Open quadrature with Clenshaw-Curtis variable transformation");
+		outfile.WriteLine("------------------------------------------------------------");
+		outfile.WriteLine($"The Clenshaw-Curtis variable transformation is implemented to improve numerical definite integrals with singularities at the end-points of the integration.\n");
+		outfile.WriteLine($"Definite integral of 1/sqrt(x) from {a} to {b}:");
+		outfile.WriteLine($"Numerical routine (without CC):       {f3_int.Item1}");
+		outfile.WriteLine($"Numerical routine (with CC):          {f3_int_cc.Item1}");
+		outfile.WriteLine($"Analytical result:                    2");
+		outfile.WriteLine($"Error (without CC):                   {f3_err}");
+		outfile.WriteLine($"Error (with CC):                      {f3_err_cc}");
+		outfile.WriteLine($"Integration counts (without CC):      {f3_counts}");
+		outfile.WriteLine($"Integration counts (with CC):         {f3_counts_cc}\n");
+		outfile.WriteLine($"Definite integral of ln(x)/sqrt(x) from {a} to {b}:");
+		outfile.WriteLine($"Numerical routine (without CC):       {f4_int.Item1}");
+		outfile.WriteLine($"Numerical routine (with CC):          {f4_int_cc.Item1}");
+		outfile.WriteLine($"Analytical result:                    -4");
+		outfile.WriteLine($"Error (without CC):                   {f4_err}");
+		outfile.WriteLine($"Error (with CC):                      {f4_err_cc}");
+		outfile.WriteLine($"Integration counts (without CC):      {f4_counts}");
+		outfile.WriteLine($"Integration counts (with CC):         {f4_counts_cc}\n");
+		outfile.Close();
+/*
 		WriteLine($"The definite integral of 4*sqrt(1-x*x) from {a} to {b} is calculated with and without the Clenshaw-Curtis variable transformation for comparison. With delta = {delta} and eps = {eps}, the computation results are as follows:\n");
 		WriteLine($"Without Clenshaw-Curtis:");
 		WriteLine($"Integration result:             {f5_int.Item1}");
@@ -114,14 +112,8 @@ class integration{
 			counts_out.WriteLine($"{deltas[j]} {trapint_counts[j]} {CC_counts[j]} {o8av_counts[j]}");
 		}
 		counts_out.Close();
-		return 0;
+*/		return 0;
 	}
-	public static Func<double,double> f1 = delegate(double x){		
-		return Sqrt(x);
-	};
-	public static Func<double,double> f2 = delegate(double x){		
-		return 4*Sqrt(1-x*x);
-	};
 	public static Func<double,double> f3 = delegate(double x){		
 		return 1/Sqrt(x);
 	};
