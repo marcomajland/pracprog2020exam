@@ -1,0 +1,10 @@
+set term svg
+set out "HiggsPlot.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+set style circle radius 0.1
+plot "higgs_plot.txt" using 1:2 with lines lc rgbcolor "blue" title "Breit-Wigner fit", "./plot_files/data.txt" using 1:2:($3) with yerrorbars lc rgbcolor "black" title "Data points"
