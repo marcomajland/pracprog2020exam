@@ -12,10 +12,29 @@ public partial class ode_solver{
 	public static vector[] rkstep12(Func<double, vector, vector> f, double x, vector y, double h){
 		vector k_0 = f(x,y); // Zeroth order Euler method
 		vector k_12 = f(x + 0.5*h, y + 0.5*h*k_0); // First order
-
 		vector yh = y + h*k_12; // Updated y-values
 		vector err = (k_12 - k_0)*h; // Error estimate
-	
+		return new vector[] {yh, err};
+	}
+	public static vector[] rkstep23(Func<double,vector,vector> f, double x, vector y, double h){
+		vector k_0 = f(x,y);
+		vector k_1 = f(x + h/2, y + (h/2)*k_0);
+		vector k_2 = f(x + 3*h/4, y + (3*h/4)*k_1);
+		vector k_a = (2*k_0 + 3*k_1 + 4*k_2)/9;
+		vector k_b = k_1;
+		vector yh = y + k_a*h;
+		vector err = (k_a-k_b)*h;
+		return new vector[] {yh, err};
+	}
+	public static vector[] rkstep45(Func<double,vector,vector> f, double x, vector y, double h){
+		vector k_0 = f(x,y);
+		vector k_1 = f(x + 0.5*h, y + 0.5*h*k_0);
+		vector k_2 = f(x + 0.5*h, y + 0.5*h*k_1);
+		vector k_3 = f(x + h, y + h*k_2);
+		vector k_a = 1/6.0*k_0 + 1/3.0*k_1 + 1/3.0*k_2 + 1/6.0*k_3;
+		vector k_b = k_2;
+		vector yh = y + k_a*h;
+		vector err = (k_a - k_b)*h;
 		return new vector[] {yh, err};
 	}
 	// Adaptive step size driver routine which utilizes the Runge-Kutta stepper with the Euler midpoint method

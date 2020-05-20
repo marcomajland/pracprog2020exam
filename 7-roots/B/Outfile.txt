@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------
+Bound states of hydrogen atom with shooting method for boundary value problems
+------------------------------------------------------------------------------
+The ground state of the hydrogen atom is calculated using the shooting method for boundary value problems.
+Root finder results of auxiliary function:
+M(eps)=0:
+Initial eps:                  -0.5
+Root eps:                     NaN
+Error:                        NaN
+

@@ -1,11 +1,10 @@
-MATLIB = ../matlib
-all : roots.exe plot.gpi hydrogen.gpi
+MATLIB = ../../matlib
+all : main_B.exe hydrogen.gpi
 	mono $<
-	gnuplot plot.gpi
 	gnuplot hydrogen.gpi
-roots.exe : roots.cs lib.dll
+main_B.exe : main_B.cs lib.dll
 	mcs $< -r:lib.dll
-lib.dll : $(MATLIB)/vector.cs $(MATLIB)/matrix.cs $(MATLIB)/qr.cs root_finder.cs $(MATLIB)/ode_solver.cs $(MATLIB)/ode_solver_Fedorov.cs
+lib.dll : $(MATLIB)/vector.cs $(MATLIB)/matrix.cs $(MATLIB)/qr.cs $(MATLIB)/root_finder.cs $(MATLIB)/ode_solver.cs $(MATLIB)/ode_solver_Fedorov.cs
 	mcs $^ -t:library -out:$@
 clean :
 	rm --force *.exe *.dll *.svg *.txt
