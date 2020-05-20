@@ -1,0 +1,19 @@
+set term svg
+set out "AccuracyCountsPlot.svg"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set xrange [*:*] reverse
+set log xy
+set multiplot layout 2,1
+
+set title "Comparison of integration routines of definite integral of 4*sqrt(1-x*x)"
+set key top right
+unset xlabel
+set ylabel "Error |Q-pi|"
+plot "./plot_files/error_out.txt" using 1:2 with lines title "Trap. quad. (without CC)", "./plot_files/error_out.txt" using 1:3 with lines title "Trap. quad. (with CC)", "./plot_files/error_out.txt" using 1:4 with lines title "o8av"
+unset title
+set xlabel "Absolute accuracy"
+set ylabel "Integration counts"
+set key top left
+plot "./plot_files/counts_out.txt" using 1:2 with lines title "Trap. quad. (without CC)", "./plot_files/counts_out.txt" using 1:3 with lines title "Trap. quad. (with CC)", "./plot_files/counts_out.txt" using 1:4 with lines title "o8av"

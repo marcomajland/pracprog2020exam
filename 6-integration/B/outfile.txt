@@ -21,3 +21,5 @@ Error (with CC):                      0.000126143538598189
 Integration counts (without CC):      4303
 Integration counts (with CC):         47
 
+As can be seen in the above scheme, the Clenshaw-Curtis variable transformation yields considerably lower integration evaluation counts, although at the sacrifice of higher error for the latter integral.
+
