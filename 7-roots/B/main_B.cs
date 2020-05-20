@@ -7,7 +7,7 @@ class roots{
 		double eps = 1e-6;
 		double dx = 1e-7;
 
-		vector eps_initial = new vector(-0.50);
+		vector eps_initial = new vector(-0.40);
 		vector epsilon = root_finder.newton(aux_function,eps_initial,eps,dx);
 
 		Tuple<List<double>, List<vector>> hydrogen = radial_schrodinger(epsilon[0]);
@@ -22,7 +22,7 @@ class roots{
 		outfile.WriteLine($"Bound states of hydrogen atom with shooting method for boundary value problems");
 		outfile.WriteLine($"------------------------------------------------------------------------------");
 		outfile.WriteLine($"The ground state of the hydrogen atom is calculated using the shooting method for boundary value problems.");
-		outfile.WriteLine($"Root finder results of auxiliary function:");
+		outfile.WriteLine($"Root finder results of auxiliary function with accuracy eps = {eps}:");
 		outfile.WriteLine($"M(eps)=0:");
 		outfile.WriteLine($"Initial eps:                  {eps_initial[0]}");		
 		outfile.WriteLine($"Root eps:                     {epsilon[0]}");
@@ -41,9 +41,8 @@ class roots{
 		vector ya = new vector(2); ya[0] = r_min - r_min*r_min; ya[1] = 1-2*r_min;
 		Func<double,vector,vector> f = delegate(double x, vector y){
 			return new vector(y[1], -2*(epsilon*y[0] + y[0]/x));};
-		return ode_solver.rk12(f,ya,r_min,r_max,1e-6,1e-6);
+		return ode_solver.solve(f,ya,r_min,r_max,1e-3,1e-3);
 	}
-
 	public static Func<vector,vector> f1 = delegate(vector x){
 		return new vector(x[0]*x[0] + 4*x[1]*x[1] - 9, 18*x[1] - 14*x[0]*x[0] + 45);};	
 	public static Func<vector,vector> f2 = delegate(vector x){

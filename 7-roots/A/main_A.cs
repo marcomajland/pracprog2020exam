@@ -9,7 +9,7 @@ class roots{
 
 		vector x1 = new vector(1.0,-1.0);
 		vector x2 = new vector(-0.5,3.0);
-		vector x_rosenbrock = new vector(3.0, 3.0);
+		vector x_rosenbrock = new vector(0.5, 1.5);
 		vector res1 = root_finder.newton(f1,x1,eps,dx);
 		vector res2 = root_finder.newton(f2,x2,eps,dx);
 		vector res_rosenbrock = root_finder.newton(rosenbrock,x_rosenbrock,eps,dx);

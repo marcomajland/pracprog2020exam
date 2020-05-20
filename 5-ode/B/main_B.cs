@@ -15,7 +15,7 @@ class ode{
 		// ODE routine which returns x values and y values
 		Tuple<List<double>, List<vector>> sir_res;
 		for(T_c=0.25;T_c<2;T_c+=0.5){
-			sir_res = ode_solver.rk12(sir_ODE, ya, a, b, acc, eps, h, max_steps);
+			sir_res = ode_solver.solve(sir_ODE, ya, a, b, acc, eps, h, max_steps);
 			var sir_out = new System.IO.StreamWriter($"./plot_files/sir_out_{T_c}.txt",append:false);
 			for(int i=0;i<sir_res.Item1.Count;i++){
 				sir_out.WriteLine($"{sir_res.Item1[i]} {sir_res.Item2[i][0]} {sir_res.Item2[i][1]} {sir_res.Item2[i][2]}");
