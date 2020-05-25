@@ -1,0 +1,13 @@
+				A	B	C
+Interpolation			6	3	1
+Linear equations		6	3	
+Least squares			6	3	1
+Eigenvalues			6	3
+ODE				6	3
+Numerical integration		6	3
+Roots				6	3
+Minimization			6	3
+Monte Carlo
+Artificial neural network
+
+SUM				74
