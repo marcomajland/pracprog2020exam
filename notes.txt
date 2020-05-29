@@ -2,3 +2,4 @@ Notes:
 - ODE routine must be revised to account for integration around integration end point
 - In the roots problems, the ODE routine used to calculate roots of auxiliary function of radial Schrodinger equation must be one's own ODE routine rather than Dmitri's routine (perhaps a bug in the ODE routine)
 - The root finder is very sensitive to initial guess of root, perhaps a bug in the ODE routine
+- In matlib, qnewton.cs routine has an extra method called sr1() which must be revised or removed (possibly a method used from Dmitri's matlib
