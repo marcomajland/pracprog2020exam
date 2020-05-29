@@ -1,0 +1,10 @@
+set term svg
+set out "Plot.svg"
+set xlabel "Amount of samples N"
+set ylabel "Error"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key top right
+set style circle radius 0.025
+plot "./datafiles/plot.txt" using 1:2 with lines, "./datafiles/data.txt" using 1:2 with circles fill solid lc rgbcolor "green"
