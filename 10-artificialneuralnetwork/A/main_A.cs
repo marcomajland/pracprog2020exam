@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using static System.Math;
 class main_A{
 	public static int Main(){	
-		double a = 0.0; double b = 3*PI;
-//		double a = -1.0; double b = 1.0;
-		misc.generate_data(f1, a, b, 0.1, "./datafiles/data.txt");
+//		double a = 0.0; double b = 3*PI;
+		double a = -1.0; double b = 1.0;
+		misc.generate_data(g, a, b, 0.1, "./datafiles/data.txt");
 		List<double[]> data = misc.load_data("./datafiles/data.txt");
 		double[] x = data[0]; double[] y = data[1];
 		vector xs = new vector(x.Length); for(int i=0;i<xs.size;i++){xs[i] = x[i];}

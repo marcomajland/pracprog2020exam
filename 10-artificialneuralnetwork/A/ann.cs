@@ -41,7 +41,7 @@ public class ann{
 			pars_initial[3*i+2] = 1;
 		}
 //		int min_steps = qnewton.minimize(delta, ref pars_initial, 1e-2);
-		int min_steps = simplex.downhill(delta, ref pars_initial, step:0.2,dx:1e-2,maxsteps:3000);
+		int min_steps = simplex.downhill(delta, ref pars_initial, 0.2, 1e-2, 3000);
 	}
 }
 

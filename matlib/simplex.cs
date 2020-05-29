@@ -2,15 +2,9 @@ using System;
 using static System.Console;
 using static System.Math;
 public partial class simplex{
-	public static double size(vector[] p){
-		double s = 0;
-		for(int i=1;i<p.Length;i++){s = Max(s, (p[0] - p[i]).norm());}
-		return s;
-	}
 	public static int downhill(Func<vector,double> f, ref vector x, double step=1.0/4, double tol=1e-3,int n_max=999){
 		vector[] p = new vector[x.size+1];
 		vector fs = new vector(x.size+1);
-		int n = 0;
 		for(int i=0;i<x.size;i++){
 			x[i] = x[i] + step;
 			p[i] = x.copy();
@@ -19,9 +13,10 @@ public partial class simplex{
 		}
 		p[x.size] = x.copy();
 		fs[x.size] = f(p[x.size]);
-		int low = 0; int high = 0;
+		int low = 0; int high = 0; int n = 0;
 		while(size(p) > tol && n < n_max){
 			n++;
+			low = 0; high = 0;
 			get_low_high(fs, ref low, ref high);
 			vector centroid = new vector(p[0].size);
 			for(int i=0;i<p.Length;i++){
@@ -66,6 +61,10 @@ public partial class simplex{
 			if(fi < f_low){f_low = fi; low = i;}
 		}
 	}
-
+	public static double size(vector[] p){
+		double s = 0;
+		for(int i=1;i<p.Length;i++){s = Max(s, (p[0] - p[i]).norm());}
+		return s;
+	}
 }
 
