@@ -1,8 +1,7 @@
 MATLIB = ../../matlib
-all : main_B.exe errors_plot.gpi
+all : main_B.exe plot.gpi
 	mono $<
-	gnuplot errors_plot.gpi
-	inkview Errors.svg
+	gnuplot plot.gpi
 main_B.exe : main_B.cs lib.dll
 	mcs $< -r:lib.dll
 lib.dll : $(MATLIB)/vector.cs $(MATLIB)/matrix.cs $(MATLIB)/qr.cs $(MATLIB)/ode_solver.cs $(MATLIB)/qnewton.cs $(MATLIB)/monte_carlo.cs $(MATLIB)/integrator.cs
