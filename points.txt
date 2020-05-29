@@ -7,7 +7,7 @@ ODE				6	3
 Numerical integration		6	3       1
 Roots				6	3
 Minimization			6	3
-Monte Carlo
+Monte Carlo			6
 Artificial neural network
 
 SUM				75
