@@ -1,4 +1,4 @@
-set term svg
+set term svg background rgb 'white'
 set out "SIRPlot.svg"
 set xzeroaxis
 set yzeroaxis

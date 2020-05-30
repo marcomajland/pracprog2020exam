@@ -1,4 +1,4 @@
-set term svg
+set term svg background rgb 'white'
 set out "HydrogenBoundStates.svg"
 set xlabel "Radial distance in atomic units"
 set ylabel "Radial wave function"
