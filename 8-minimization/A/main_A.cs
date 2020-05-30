@@ -1,6 +1,6 @@
 using System;
 using static System.Console;
-class minimization{
+class main_A{
 	public static int Main(){
 		// Rosenbrock function
 		Func<vector,double> rosenbrock = delegate(vector x){
