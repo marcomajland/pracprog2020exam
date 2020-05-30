@@ -3,23 +3,38 @@ using static System.Console;
 using System.Collections.Generic;
 using static System.Math;
 class main_B{
-	public static int Main(){
-		Func<vector, double> f = delegate(vector x){return 1/Sqrt(x[0]);};		
-		double result=0; double error=0;
-		vector a = new vector(0.0); vector b = new vector(1.0); double analytical = 2.0;
+	public static int Main(){	
+		double a = 0.0; double b = 2*PI;
+		misc.generate_data(f1, a, b, 0.1, "./datafiles/data.txt");
+		misc.generate_data(f3, a, b, 0.1, "./datafiles/derivative.txt");
+		List<double[]> data = misc.load_data("./datafiles/data.txt");
+		double[] x = data[0]; double[] y = data[1];
+		vector xs = new vector(x.Length); for(int i=0;i<xs.size;i++){xs[i] = x[i];}
+		vector ys = new vector(y.Length); for(int i=0;i<ys.size;i++){ys[i] = y[i];}
 
-		int N_min = 100; int N_max = 40000; int dN = 10;
+		var ann1 = new ann(gaussian,5);
+		ann1.train(xs,ys);
 
-		monte_carlo.plain(f,a,b,N_max,ref result,ref error);
-		double factor = error*Sqrt(N_max);
+		var plot = new System.IO.StreamWriter("./datafiles/plot.txt",append:false);
+		for(double z=a;z<=b;z+=1.0/64){
+			plot.WriteLine($"{z} {ann1.derivative(z)}");
+		}
+		plot.Close();
+		return 0;
+	}
+	public static Func<double,double> gaussian = delegate(double x){return Exp(-x*x);};
+	public static Func<double,double> gaussian_wavelet = delegate(double x){return x*Exp(-x*x);};
+	public static Func<double,double> wavelet = delegate(double x){return Cos(5*x)*Exp(-x*x);};
+	public static Func<double,double> f1 = delegate(double x){return Sin(x);};
+	public static Func<double,double> f2 = delegate(double x){return -Cos(x)+1;};
+	public static Func<double,double> f3 = delegate(double x){return Cos(x);};
+}
 
-		var errors = new System.IO.StreamWriter($"./plot_files/errors.txt",append:false);
+
+
+		/*var errors = new System.IO.StreamWriter($"./plot_files/errors.txt",append:false);
 		for(int N=N_min;N<=N_max;N+=dN){
 			monte_carlo.plain(f,a,b,N,ref result,ref error);
 			errors.WriteLine($"{N} {error} {factor/Sqrt(N)} {analytical-result}");
 		}
-		errors.Close();
-		return 0;
-	}
-}
-
+		errors.Close();*/

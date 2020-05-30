@@ -1,12 +1,11 @@
-set term svg
-set out "Errors.svg"
-set xlabel "Amount of samples N"
-set ylabel "Error"
+set term svg background rgb 'white'
+set out "Plot.svg"
+set xlabel "y"
+set ylabel "x"
 set xzeroaxis
 set yzeroaxis
 set tics out
-set key top right
-set style circle radius 75
-set logscale y
-set title "Plain Monte Carlo integration errors for integration of 1/sqrt(x) from 0 to 1"
-plot "./plot_files/errors.txt" using 1:4 with circles fill solid lc rgbcolor "green" title "Deviation from exact result", "./plot_files/errors.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "Estimated Monte Carlo error", "./plot_files/errors.txt" using 1:3 with lines lw 2 lc rgbcolor "black" title "MaxError*Sqrt(MaxN)/Sqrt(N)"
+set key bottom right
+set style circle radius 0.025
+set title "Artificial neural network used to fit derivative of y = sin(x) with Gaussians as activation functions"
+plot "./datafiles/plot.txt" using 1:2 with lines lc rgbcolor "black" title "ANN fit", "./datafiles/derivative.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "Tabulated points of y = cos(x)"

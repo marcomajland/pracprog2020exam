@@ -10,11 +10,12 @@ public class ann{
 		n = m; f = g; pars = new vector(3*n);
 	}
 	public double feedforward(double x){
-		double output = 0;
+		double output = 0; double a = 0;
+		double b = 0; double w = 0;
 		for(int i=0;i<n;i++){
-			double a = pars[3*i+0];
-			double b = pars[3*i+1];
-			double w = pars[3*i+2];
+			a = pars[3*i+0];
+			b = pars[3*i+1];
+			w = pars[3*i+2];
 			output += w*f((x-a)/b);
 		}
 		return output;
@@ -43,6 +44,20 @@ public class ann{
 //		int min_steps = qnewton.minimize(delta, ref pars_initial, 1e-2);
 		int min_steps = simplex.downhill(delta, ref pars_initial, 0.2, 1e-2, 3000);
 	}
+	public double derivative(double x){ // WORKS ONLY FOR GAUSSIAN WAVELETS
+		double output = 0; double a = 0;
+		double b = 0; double w = 0;
+		for(int i=0;i<n;i++){
+			a = pars[3*i+0];
+			b = pars[3*i+1];
+			w = pars[3*i+2];
+			output += w*gaussian_derivative((x-a)/b)/b;
+		}
+		return output;
+	}
+	public Func<double,double> gaussian_derivative = delegate(double x){
+		return -2*x*Exp(-x*x);
+	};
 }
 
 
