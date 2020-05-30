@@ -7,5 +7,9 @@ set yzeroaxis
 set tics out
 set key bottom right
 set style circle radius 0.025
+set multiplot layout 2,1
 set title "Artificial neural network used to fit derivative of y = sin(x) with Gaussians as activation functions"
-plot "./datafiles/plot.txt" using 1:2 with lines lc rgbcolor "black" title "ANN fit", "./datafiles/derivative.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "Tabulated points of y = cos(x)"
+plot "./datafiles/plot.txt" using 1:2 with lines lc rgbcolor "black" title "ANN fit", "./datafiles/derivative.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "y = cos(x)"
+set key top right
+set title "Artificial neural network used to fit anti-derivative of y = sin(x) with Gaussians as activation functions"
+plot "./datafiles/plot.txt" using 1:3 with lines lc rgbcolor "black" title "ANN fit", "./datafiles/integral.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "y = -cos(x)+1"

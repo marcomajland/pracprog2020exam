@@ -6,6 +6,7 @@ class main_B{
 	public static int Main(){	
 		double a = 0.0; double b = 2*PI;
 		misc.generate_data(f1, a, b, 0.1, "./datafiles/data.txt");
+		misc.generate_data(f2, a, b, 0.1, "./datafiles/integral.txt");
 		misc.generate_data(f3, a, b, 0.1, "./datafiles/derivative.txt");
 		List<double[]> data = misc.load_data("./datafiles/data.txt");
 		double[] x = data[0]; double[] y = data[1];
@@ -17,7 +18,7 @@ class main_B{
 
 		var plot = new System.IO.StreamWriter("./datafiles/plot.txt",append:false);
 		for(double z=a;z<=b;z+=1.0/64){
-			plot.WriteLine($"{z} {ann1.derivative(z)}");
+			plot.WriteLine($"{z} {ann1.derivative(z)} {ann1.integral(z)}");
 		}
 		plot.Close();
 		return 0;
