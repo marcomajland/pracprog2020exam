@@ -11,9 +11,9 @@ class main_C{
 		int steps_rosenbrock = simplex.downhill(rosenbrock, ref xi_rosenbrock);
 
 		WriteLine($"Rosenbrock function (steps: {steps_rosenbrock}):");
-		WriteLine($"x: {xi_rosenbrock[0]}");
-		WriteLine($"y: {xi_rosenbrock[1]}\n");
-
+		WriteLine($"x:              {xi_rosenbrock[0]}");
+		WriteLine($"y:              {xi_rosenbrock[1]}\n");
+		WriteLine($"Error:          {1.0 - xi_rosenbrock[0]},{1.0 - xi_rosenbrock[1]}\n");
 		return 0;
 	}
 

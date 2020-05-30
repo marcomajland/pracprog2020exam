@@ -1,10 +1,11 @@
-set term svg
+set term svg background rgb 'white'
 set out "Plot.svg"
-set xlabel "Amount of samples N"
-set ylabel "Error"
+set xlabel "y"
+set ylabel "x"
 set xzeroaxis
 set yzeroaxis
 set tics out
-set key top right
-set style circle radius 0.025
-plot "./datafiles/plot.txt" using 1:2 with lines, "./datafiles/data.txt" using 1:2 with circles fill solid lc rgbcolor "green"
+set key bottom right
+set style circle radius 0.015
+set title "Artificial neural network used to fit y = sin(x) with Gaussian wavelets as activation functions"
+plot "./datafiles/plot.txt" using 1:2 with lines lc rgbcolor "black" title "ANN fit", "./datafiles/data.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "Tabulated points of y = sin(x)"

@@ -5,25 +5,24 @@ public partial class simplex{
 	public static int downhill(Func<vector,double> f, ref vector x, double step=1.0/4, double tol=1e-3,int n_max=999){
 		vector[] p = new vector[x.size+1];
 		vector fs = new vector(x.size+1);
+		p[x.size] = x.copy(); fs[x.size] = f(p[x.size]); // move
 		for(int i=0;i<x.size;i++){
 			x[i] = x[i] + step;
 			p[i] = x.copy();
 			fs[i] = f(p[i]);
 			x[i] = x[i] - step;
 		}
-		p[x.size] = x.copy();
-		fs[x.size] = f(p[x.size]);
-		int low = 0; int high = 0; int n = 0;
+		int low = 0; int high = 0; double f_low = 0; double f_high = 0; int n = 0;
 		while(size(p) > tol && n < n_max){
 			n++;
-			low = 0; high = 0;
-			get_low_high(fs, ref low, ref high);
+			get_low_high(fs, ref low, ref high, ref f_low, ref f_high);
+
 			vector centroid = new vector(p[0].size);
-			for(int i=0;i<p.Length;i++){
-				if(i != high){centroid += p[i];}
-				centroid /= centroid.size;
-			}
+			for(int i=0;i<p.Length;i++){if(i != high){centroid += p[i];}}
+			centroid /= centroid.size;
+
 			vector reflection = 2*centroid - p[high];
+
 			double f_ref = f(reflection);
 			if(f_ref < fs[low]){
 				vector expansion = 3*centroid - 2*p[high];
@@ -51,10 +50,9 @@ public partial class simplex{
 		x = p[low];
 		return n;		
 	}
-	public static void get_low_high(vector fs, ref int low, ref int high){
+	public static void get_low_high(vector fs, ref int low, ref int high, ref double f_low, ref double f_high){
 		low = 0; high = 0; double fi = 0;
-		double f_low = fs[low];
-		double f_high = fs[high];
+		f_low = fs[low]; f_high = fs[high];
 		for(int i=1;i<fs.size;i++){
 			fi = fs[i];
 			if(fi > f_high){f_high = fi; high = i;}
