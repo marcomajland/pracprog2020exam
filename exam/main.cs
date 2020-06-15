@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using static System.Math;
 class main{
 	public static int Main(){
-		int dim = 20;
-		double deviation = 5.0;
+		int dim = 30;
+		double deviation = 1.3;
 		var rnd = new Random();
 		int i = rnd.Next(20);
 
@@ -16,9 +16,8 @@ class main{
 		vector e = res.get_eigenvalues(); 
 		matrix V = res.get_eigenvectors(); 
 
-		double eigenvalue = e[i] + deviation;
-		vector v_0 = new vector(A.size1);
-		for(int j=0;j<v_0.size;j++){v_0[j] = 1;}
+		double eigenvalue = e[i]*deviation;
+		vector v_0 = V[i]/V[i].norm();
 
 		double s = power_method.inverse_iteration(Ac, eigenvalue, v_0);
 
