@@ -14,7 +14,7 @@ class roots{
 		vector res2 = root_finder.newton(f2,x2,eps,dx);
 		vector res_rosenbrock = root_finder.newton(rosenbrock,x_rosenbrock,eps,dx);
 
-		var outfile = new System.IO.StreamWriter($"Outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../A_out.txt",append:false);
 		outfile.WriteLine($"--------------------------------------------------------------------");
 		outfile.WriteLine($"Newton's method with numerical Jacobian and back-tracking linesearch");
 		outfile.WriteLine($"--------------------------------------------------------------------");

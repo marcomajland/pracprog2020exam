@@ -1,0 +1,45 @@
+---------------
+Infinite limits
+---------------
+The following infinite limit integrals are evaluated using the integration routine and compared to the o8av matlib routine with delta = 1E-06 and eps = 1E-06.
+
+Definite integral of exp(-x*x) from -inf to inf:
+
+Numerical routine:               1.77245382993893
+Analytical result:               1.77245385090552
+Routine tolerance:               -7.72453829938929E-07
+Error (analytical-numerical):    2.09665864669972E-08
+o8av result:                     1.77245411516459
+Routine counts:                  563
+o8av counts:                     128
+
+Definite integral of exp(-x)*cos(x) from 0 to inf:
+
+Numerical routine:               0.500001894784464
+Analytical result:               0.5
+Routine tolerance:               4.99998105215536E-07
+Error (analytical-numerical):    -1.89478446388502E-06
+o8av result:                     0.500000516250187
+Routine counts:                  393
+o8av counts:                     88
+
+Definite integral of exp(-x)*sin(x) from 0 to inf:
+
+Numerical routine:               0.500000085294408
+Analytical result:               0.5
+Routine tolerance:               4.99999914705592E-07
+Error (analytical-numerical):    -8.52944078699736E-08
+o8av result:                     0.50000164849309
+Routine counts:                  439
+o8av counts:                     72
+
+Definite integral of exp(-x*x) from -inf to 0:
+
+Numerical routine:               0.886226637344603
+Analytical result:               0.886226925452758
+Routine tolerance:               1.13773362655397E-07
+Error (analytical-numerical):    2.88108154888889E-07
+o8av result:                     0.886227057582295
+Routine counts:                  333
+o8av counts:                     64
+

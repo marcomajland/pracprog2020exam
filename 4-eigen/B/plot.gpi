@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "DiagonalizationScale.svg"
+set out "../B_DiagonalizationScale.svg"
 set xlabel "Matrix dimension"
 set ylabel "Diagonalization time [ms]"
 set xzeroaxis

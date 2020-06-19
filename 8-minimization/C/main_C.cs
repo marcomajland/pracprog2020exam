@@ -22,7 +22,7 @@ class main_C{
 		int ds_rosenbrock = simplex.downhill(rosenbrock, ref xi_ds_rosenbrock, tol:tol);
 		int ds_himmelblau = simplex.downhill(himmelblau, ref xi_ds_himmelblau, tol:tol);
 
-		var outfile = new System.IO.StreamWriter($"Outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../C_out.txt",append:false);
 		outfile.WriteLine($"-------------------------------------");
 		outfile.WriteLine($"Downhill simplex minimization routine");
 		outfile.WriteLine($"-------------------------------------");

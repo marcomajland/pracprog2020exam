@@ -1,0 +1,25 @@
+------------------------------------------------------------
+Open quadrature with Clenshaw-Curtis variable transformation
+------------------------------------------------------------
+The Clenshaw-Curtis variable transformation is implemented to improve numerical definite integrals with singularities at the end-points of the integration.
+
+Definite integral of 1/sqrt(x) from 0 to 1:
+Numerical routine (without CC):       1.99996150007805
+Numerical routine (with CC):          1.99999201046432
+Analytical result:                    2
+Error (without CC):                   -3.84999219518178E-05
+Error (with CC):                      -7.98953567793248E-06
+Integration counts (without CC):      4283
+Integration counts (with CC):         7
+
+Definite integral of ln(x)/sqrt(x) from 0 to 1:
+Numerical routine (without CC):       -3.99991705899915
+Numerical routine (with CC):          -3.9998738564614
+Analytical result:                    -4
+Error (without CC):                   8.29410008478249E-05
+Error (with CC):                      0.000126143538598189
+Integration counts (without CC):      4303
+Integration counts (with CC):         47
+
+As can be seen in the above scheme, the Clenshaw-Curtis variable transformation yields considerably lower integration evaluation counts, although at the sacrifice of higher error for the latter integral.
+

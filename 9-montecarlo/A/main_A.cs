@@ -9,7 +9,7 @@ class main_A{
 		Func<vector, double> f3 = delegate(vector x){return 1/(PI*PI*PI)*1/(1-Cos(x[0])*Cos(x[1])*Cos(x[2]));};
 		vector a; vector b; double N; double analytical;
 
-		var outfile = new System.IO.StreamWriter($"Outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../A_out.txt",append:false);
 		outfile.WriteLine($"-----------------------------");
 		outfile.WriteLine($"Plain Monte Carlo integration");
 		outfile.WriteLine($"-----------------------------");

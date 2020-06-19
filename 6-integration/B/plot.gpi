@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "AccuracyCountsPlot.svg"
+set out "../B_AccuracyCountsPlot.svg"
 set xzeroaxis
 set yzeroaxis
 set tics out

@@ -1,0 +1,26 @@
+--------------------------------------------------------------------
+Newton's method with numerical Jacobian and back-tracking linesearch
+--------------------------------------------------------------------
+The root finder routine is tested using the functions:
+f11(x) = x*x + 4*y*y - 9, f12(x) = 18*y - 14*x*x + 45
+and
+f21(x) = 2*(x-1) + 400*x*(x*x - y), f22(x) = 200*(y-x*x).
+
+Root finder results:
+
+f11(x)=f12(x)=0:
+Initial (x0,y0):              1,-1
+Root (x,y):                   1.20316580727684,-1.37408348581792
+Error (f11(x),f12(x)):        2.96637902135188E-05,-1.41819243566488E-05
+
+f21(x)=f22(x)=0:
+Initial (x0,y0):              -0.5,3
+Root (x,y):                   0.999999734832101,0.999999465522301
+Error (f21(x),f22(x)):        1.12645197979308E-06,-8.28394108864927E-07
+
+Root finder results for Rosenbrock valley function:
+
+Initial (x0,y0):              0.5,1.5
+Root (x,y):                   0.999999708871835,0.999999413128483
+Error (f21(x),f22(x)):        1.26385193155443E-06,-9.23054388479727E-07
+

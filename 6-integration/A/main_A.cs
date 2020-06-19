@@ -15,7 +15,7 @@ class integration{
 		double f2_err = f2_int.Item1 - PI;
 		int f2_counts = f2_int.Item2;
 
-		var outfile = new System.IO.StreamWriter($"outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../out_A.txt",append:false);
 		outfile.WriteLine("-----------------------------");
 		outfile.WriteLine("Recursive adaptive integrator");
 		outfile.WriteLine("-----------------------------");

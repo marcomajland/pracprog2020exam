@@ -17,7 +17,7 @@ class main_A{
 		int steps_rosenbrock = qnewton.sr1(rosenbrock, ref xi_rosenbrock, 1e-4);
 		int steps_himmelblau = qnewton.minimize(himmelblau, ref xi_himmelblau, 1e-6);
 
-		var outfile = new System.IO.StreamWriter($"Outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../A_out.txt",append:false);
 		outfile.WriteLine($"----------------------------------------------------------------------------------------");
 		outfile.WriteLine($"Quasi-Newton method with numerical gradient, back-tracking linesearch, and rank-1 update");
 		outfile.WriteLine($"----------------------------------------------------------------------------------------");

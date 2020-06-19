@@ -26,7 +26,7 @@ class eigen{
 		matrix Ac = A.copy();
 		var A_res = new jacobi_diagonalization(A,"cyclic");
 		var Ac_res = new jacobi_diagonalization(Ac,"value",eigenvalues);
-		var outfile = new System.IO.StreamWriter("./outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter("../out_B.txt",append:false);
 		outfile.WriteLine($"-----------------------------------------------");
 		outfile.WriteLine($"Jacobi diagonalization eigenvalue-by-eigenvalue");
 		outfile.WriteLine($"-----------------------------------------------");
@@ -59,11 +59,6 @@ class eigen{
 		outfile.WriteLine($"Amount of rotations (full diagonalization):   {Acc_res.get_rotations()}\n");
 		outfile.WriteLine($"Thus, the eigenvalue-by-eigenvalue method is suitable for calculuating only the lowest eigenvalues of a matrix whereas the cyclic sweep method is faster for full diagonalization.");
 		outfile.Close();
-		// 3) Comparison of cyclic sweep method and value-by-value method
-
-
-//		WriteLine($"Amount of Jacobi rotations to diagonalize A is {res.get_rotations()} while amount of Jacobi rotations to obtain lowest eigenvalue of A is {res.get_single_row_rotations()}.");	
-
 	return 0;
 	}
 }

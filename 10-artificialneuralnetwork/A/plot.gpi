@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "Plot.svg"
+set out "../A_Plot.svg"
 set xlabel "y"
 set ylabel "x"
 set xzeroaxis

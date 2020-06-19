@@ -17,7 +17,7 @@ class roots{
 		}
 		hydrogen_out.Close();
 
-		var outfile = new System.IO.StreamWriter($"Outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../B_out.txt",append:false);
 		outfile.WriteLine($"------------------------------------------------------------------------------");
 		outfile.WriteLine($"Bound states of hydrogen atom with shooting method for boundary value problems");
 		outfile.WriteLine($"------------------------------------------------------------------------------");

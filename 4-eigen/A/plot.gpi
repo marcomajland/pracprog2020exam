@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "EigenvectorsPlot.svg"
+set out "../A_EigenvectorsPlot.svg"
 set xlabel "chi"
 set ylabel "Psi(chi)"
 set xzeroaxis

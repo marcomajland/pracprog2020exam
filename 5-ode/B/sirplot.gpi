@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "SIRPlot.svg"
+set out "../B_SIRPlot.svg"
 set xzeroaxis
 set yzeroaxis
 set tics out

@@ -15,7 +15,7 @@ class eigen{
 		matrix VTAV = V*Ac*V.transpose();
 		Tuple<vector, matrix> boxres = box(20);
 
-		var outfile = new System.IO.StreamWriter("./out_A.txt",append:false);
+		var outfile = new System.IO.StreamWriter("../out_A.txt",append:false);
 		outfile.WriteLine($"-----------------------------------------");
 		outfile.WriteLine($"Jacobi diagonalization with cyclic sweeps");
 		outfile.WriteLine($"-----------------------------------------");

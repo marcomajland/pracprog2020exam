@@ -21,7 +21,7 @@ class ode{
 				sir_out.WriteLine($"{sir_res.Item1[i]} {sir_res.Item2[i][0]} {sir_res.Item2[i][1]} {sir_res.Item2[i][2]}");
 			}sir_out.Close();
 		}
-		var outfile = new System.IO.StreamWriter($"outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../out_B.txt",append:false);
 		outfile.WriteLine("-------------");
 		outfile.WriteLine("The SIR model");
 		outfile.WriteLine("-------------");

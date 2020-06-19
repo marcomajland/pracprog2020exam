@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "Errors.svg"
+set out "../B_Errors.svg"
 set xlabel "Amount of samples N"
 set ylabel "Error"
 set xzeroaxis

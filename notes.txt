@@ -5,3 +5,11 @@ Notes:
 - In matlib, qnewton.cs routine has an extra method called sr1() which must be revised or removed (possibly a method used from Dmitri's matlib
 - Must finish exercise 8C with outfile and comparison to other minimization routines
 - Changed random real symmetrix matrix generator to contain double entries rather than integer entries, must check if this changes the results of any of the exercises
+
+
+Eigenvalue problems:
+- Must do third order polynomial curve fitting for amount of operations of Jacobi diagonalization routine in exercise B
+- The eigenvalue-by-eigenvalue routine for lowest eigenvalue only works better than cyclic sweeps method for high matrix dimensions
+
+Minimization problems:
+-In exercise 8C, the minimization of the Rosenbrock function seems to require fewer minimization steps for the quasi-Newton method where the downhill simplex method requires more steps at the cost of a higher accuracy.

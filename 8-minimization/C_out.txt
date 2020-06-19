@@ -1,0 +1,30 @@
+-------------------------------------
+Downhill simplex minimization routine
+-------------------------------------
+The downhill simplex minimization routine is implemented and compared to the quasi-Newton method in exercise 8A with tolerance = 1E-08.
+
+Minimization of the Rosenbrock function:
+
+Quasi-Newton minimization routine:
+(x,y):          0.999996995005876,0.999993985013046
+Error:          3.00499412364541E-06,6.01498695373959E-06
+Steps:          63
+
+Downhill simplex minimization routine:
+(x,y):          1.00000000241826,1.00000000477367
+Error:          -2.41825759417225E-09,-4.77367234630321E-09
+Steps:          120
+
+Minimization of the Himmelblau function:
+
+Quasi-Newton minimization routine:
+(x,y):          2.99999998675176,1.99999999683142
+Error:          1.32482411707713E-08,3.16857695636941E-09
+Steps:          999
+
+Downhill simplex minimization routine:
+(x,y):          3.0000000007272,2.00000000248486
+Error:          -7.27196081129478E-10,-2.4848638702224E-09
+Steps:          69
+
+The downhill simplex method seems to achieve better accuracy as compared to the quasi-Newton method. Although, for the Rosenbrock function, the downhill simplex method performs quite a few more minimization steps as compared to the quasi-Newton method.

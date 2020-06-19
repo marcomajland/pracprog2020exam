@@ -1,0 +1,26 @@
+-----------------------------
+Plain Monte Carlo integration
+-----------------------------
+The plain Monte Carlo integration routine is tested below using the same functions as in the adaptive integration problems.
+
+Definite integral of sqrt(x) from 0 to 1:
+Plain Monte Carlo:               0.665815777883059
+Monte Carlo error estimate:      0.000744421234187049
+Analytical result:               0.666666666666667
+Error (analytical-numerical):    0.000850888783607839
+Amount of samples:               100000
+
+Definite integral of 4*sqrt(1-x*x) from 0 to 1:
+Plain Monte Carlo:               3.13877513165293
+Monte Carlo error estimate:      0.00282739976487872
+Analytical result:               3.14159265358979
+Error (analytical-numerical):    0.00281752193686291
+Amount of samples:               100000
+
+Definite integral of 1/(pi^3)*(1-cos(x)*cos(y)*cos(z))^(-1) from 0 to 3.14159265358979 (for x, y and z):
+Plain Monte Carlo:               1.36982789148192
+Monte Carlo error estimate:      0.0109219600484194
+Analytical result:               1.39320392968568
+Error (analytical-numerical):    0.023376038203754
+Amount of samples:               100000
+

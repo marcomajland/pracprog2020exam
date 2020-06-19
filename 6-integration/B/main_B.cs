@@ -56,7 +56,7 @@ class integration{
 		}
 
 		// Outfile generation
-		var outfile = new System.IO.StreamWriter($"outfile.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"../out_B.txt",append:false);
 		outfile.WriteLine("------------------------------------------------------------");
 		outfile.WriteLine("Open quadrature with Clenshaw-Curtis variable transformation");
 		outfile.WriteLine("------------------------------------------------------------");

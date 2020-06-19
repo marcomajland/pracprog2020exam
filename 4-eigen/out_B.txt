@@ -1,0 +1,25 @@
+-----------------------------------------------
+Jacobi diagonalization eigenvalue-by-eigenvalue
+-----------------------------------------------
+Test of eigenvalue-by-eigenvalue routine:
+A random symmetric matrix A of dimension 10x10 is generated.
+
+5 lowest eigenvalues of A:
+     -14.6      -11.2      -10.2      -3.77     -0.619 
+
+Eigenvalues of A for comparison:
+     -14.6      -11.2      -10.2      -3.77     -0.619       1.85       5.63       10.2       11.4       49.1 
+
+Comparison of the two diagonalization routines in terms of number of rotations:
+Another random symmetric matrix A of dimension 50x50 is generated.
+
+Cyclic method:
+Lowest eigenvalue:                            -41.3247496498517
+Amount of rotations (full diagonalization):   6125
+
+Eigenvalue-by-eigenvalue method:
+Lowest eigenvalue:                            -41.3247531035486
+Amount of rotations (lowest eigenvalue):      3136
+Amount of rotations (full diagonalization):   280574
+
+Thus, the eigenvalue-by-eigenvalue method is suitable for calculuating only the lowest eigenvalues of a matrix whereas the cyclic sweep method is faster for full diagonalization.

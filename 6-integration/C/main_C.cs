@@ -7,7 +7,7 @@ class integration{
 		double delta = 1e-6;
 		double eps = 1e-6;
 
-		var outfile = new System.IO.StreamWriter($"Outfile.txt",append:false);	
+		var outfile = new System.IO.StreamWriter($"../out_C.txt",append:false);	
 		outfile.WriteLine("---------------");
 		outfile.WriteLine("Infinite limits");
 		outfile.WriteLine("---------------");

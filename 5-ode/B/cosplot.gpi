@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "CosPlot.svg"
+set out "../B_CosPlot.svg"
 set xlabel "x"
 set ylabel "y"
 set xzeroaxis
