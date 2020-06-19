@@ -4,3 +4,4 @@ Notes:
 - The root finder is very sensitive to initial guess of root, perhaps a bug in the ODE routine
 - In matlib, qnewton.cs routine has an extra method called sr1() which must be revised or removed (possibly a method used from Dmitri's matlib
 - Must finish exercise 8C with outfile and comparison to other minimization routines
+- Changed random real symmetrix matrix generator to contain double entries rather than integer entries, must check if this changes the results of any of the exercises
