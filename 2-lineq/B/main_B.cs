@@ -16,7 +16,7 @@ class main_B{
 		matrix AB = A*B;
 		
 		// Output
-		var outfile = new System.IO.StreamWriter("./out_B.txt",append:false);
+		var outfile = new System.IO.StreamWriter("../out_B.txt",append:false);
 		outfile.WriteLine($"--------------------------------");
 		outfile.WriteLine($"Matrix inverse");
 		outfile.WriteLine($"--------------------------------");

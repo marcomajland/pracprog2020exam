@@ -21,7 +21,7 @@ class main_B{
 		double dl = Log(2)/(l*l)*dc[1]; // Uncertainty in t 1/2 obtained using error of propagation
 		matrix cov = res.get_cov();
 
-		var outfile = new System.IO.StreamWriter("./out_B.txt",append:false);
+		var outfile = new System.IO.StreamWriter("../out_B.txt",append:false);
 		outfile.WriteLine($"---------------------------------------");
 		outfile.WriteLine($"ThX decay fit using least square method");
 		outfile.WriteLine($"---------------------------------------");

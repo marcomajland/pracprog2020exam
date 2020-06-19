@@ -17,7 +17,7 @@ class main_A{
 		double a = Exp(c[0]);
 		double l = c[1];
 
-		var outfile = new System.IO.StreamWriter("./out_A.txt",append:false);
+		var outfile = new System.IO.StreamWriter("../out_A.txt",append:false);
 		outfile.WriteLine($"---------------------------------------");
 		outfile.WriteLine($"ThX decay fit using least square method");
 		outfile.WriteLine($"---------------------------------------");

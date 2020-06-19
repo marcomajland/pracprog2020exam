@@ -15,7 +15,7 @@ class main_A{
 		matrix QR = Q*R;
 
 		// Output
-		var outfile = new System.IO.StreamWriter("./out_A.txt",append:false);
+		var outfile = new System.IO.StreamWriter("../out_A.txt",append:false);
 		outfile.WriteLine($"--------------------------------");
 		outfile.WriteLine($"1: QR decomposition");
 		outfile.WriteLine($"--------------------------------");
