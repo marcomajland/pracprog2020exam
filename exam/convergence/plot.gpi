@@ -1,0 +1,14 @@
+set term svg background rgb 'white'
+set out "Convergence.svg"
+set xlabel "Iterations"
+set ylabel "Error"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key top right
+set style circle radius 0.1
+set logscale y
+#set title "Convergence of inverse iteration algorithm as function of iterations"
+plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" title "Deviation 1.01", \
+"./plotfiles/convergence_1.txt" using 1:2 with lines lc rgbcolor "green" title "Deviation 1.05", \
+"./plotfiles/convergence_2.txt" using 1:2 with lines lc rgbcolor "black" title "Deviation 1.10"

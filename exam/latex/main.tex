@@ -16,17 +16,23 @@
 		(\mathbf{A} - s\mathbb{1})\mathbf{v} = \mathbf{u}
 	\end{equation}
 	where $\mathbf{v}$ is the refined eigenvector of $\mathbf{A}$. In the implementation of the inverse iteration algorithm, the above linear matrix equation is solved using QR decomposition.
-	
-	\begin{equation}
-		S(x) = \int_{0}^{x}\sin\Big(\frac{\pi t^2}{2}\Big)dt = \sum_{n = 0}^{\infty}(-1)^{n}\frac{x^{4n+3}}{(2n+1)!(4n+3)}
-	\end{equation}
-	
-%	\begin{figure}
-%	\includegraphics[]{Output.pdf}
-%	\caption{Numerical integration of the Fresnel integrals given by equation \ref{eq:Fresnel_integrals} along with the tabulated values given by \%cite{ref1}.}
-%	\label{fig:integration}
-%	\end{figure}
-	
+	\subsection*{Test of convergence relative to deviation from expected eigenvalue}
+	The convergence to the expected eigenvalue in the inverse iteration method depends critically on the initial guess. If two eigenvalues of a matrix are very close, of course, there is a high risk for the algorithm to converge to the wrong eigenvalue. This hypothesis is tested in the following way.
+	\begin{itemize}
+		\item Generate random real symmetrix matrix of size NN
+		\item Diagonalize using Jacobi diagonalization procedure
+		\item Use initial guess $s_{0} = \delta s_{\textrm{Jacobi}}$ where $s_{0}$ is initial guess of II method, $\delta$ is the deviation and $s_{\textrm{Jacobi}}$ is the Jacobi eigenvalue
+		\item Apply II method with $s_{0}$ and corresponding eigenvector as initial guess
+		\item Iterate the above procedure for 300 iterations for a given $\delta$
+	\end{itemize}
+	The above procedure is then repeated for a range of deviations. 
+	\begin{figure}
+		\includegraphics[]{../outfiles/Deviations.pdf}
+		\caption{Distributions of convergences. Convergence of 1.0 implies all iterations yielded the expected Jacobi eigenvalue. Convergence of 0.5 implies half of all iterations yielded the expected Jacobi eigenvalue.}
+		\label{fig:deviations}
+	\end{figure}	
+	The resulting normalized distribution is depicted in figure \ref{fig:deviations}. As can be seen, the distribution is symmetric around $\delta = 1.0$ for which the initial guess equals the Jacobi eigenvalues. As expected, the convergence drops rapidly as the deviation differs from 1. For these calculations, the eigenvalue was updated for every iteration using the Rayleigh quotient and updating the QR decomposition.
+
 \begin{thebibliography}{9}
 	\bibitem{ref1}
 	A. Van Wijngaarden and W. L. Scheen,

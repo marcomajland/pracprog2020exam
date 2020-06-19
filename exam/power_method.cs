@@ -3,7 +3,7 @@ using static System.Console;
 using static System.Math;
 using static System.Double;
 public partial class power_method{
-	public static double inverse_iteration(matrix A, double e_0, vector v_0, double tol = 1e-6, int n_max = 999, int max_qrs = 5){
+	public static double[] inverse_iteration(matrix A, double e_0, vector v_0, double tol = 1e-6, int n_max = 999, int max_qrs = 5){
 		int n = 0; int m = 0; double error = 1.0;
 		double s; vector u; vector v;
 		matrix As; matrix I;
@@ -15,7 +15,7 @@ public partial class power_method{
 		while(error > tol && n < n_max){
 			v = As_QR.solve(u);
 			v = v/v.norm();
-			error = (v-u).norm();
+			error = (v - u).norm();
 			u = v/v.norm();
 			if(m > max_qrs){
 				m = 0;
@@ -26,10 +26,9 @@ public partial class power_method{
 			n++; m++;
 		}
 		s = u.dot(A*u)/(u.norm()*u.norm());
-//w		WriteLine($"Inverse iteration iterations:    {n}");
-		return s;
+//		WriteLine($"Inverse iteration iterations:    {n}");
+		return new double[2] {s,n};
 	}
 }
-
 
 
