@@ -4,27 +4,37 @@ using System.Collections.Generic;
 using static System.Math;
 class main{
 	public static int Main(){
-		int dim = 30;
-		double deviation = 1.3;
+		int dim = 50;
+		double deviation = 1.05;
 		var rnd = new Random();
-		int i = rnd.Next(20);
+		int i = rnd.Next(dim);
 
 		matrix A = misc.gen_matrix(dim);
 		matrix Ac = A.copy();
 
-		var res = new jacobi_diagonalization(A);
-		vector e = res.get_eigenvalues(); 
-		matrix V = res.get_eigenvectors(); 
+		var jacobi = new jacobi_diagonalization(A);
+		vector e = jacobi.get_eigenvalues(); 
+		matrix V = jacobi.get_eigenvectors(); 
 
-		double eigenvalue = e[i]*deviation;
+		double e_0 = e[i]*deviation;
 		vector v_0 = V[i]/V[i].norm();
+		for(int j=0;j<v_0.size;j++){v_0[j] = v_0[j]*deviation;}
 
-		double s = power_method.inverse_iteration(Ac, eigenvalue, v_0);
+		double tol = 1e-4; int max_qrs = 0; int n_max = 999;
+		double s = power_method.inverse_iteration(Ac, e_0, v_0, tol, n_max, max_qrs);
 
-		WriteLine($"Initial eigenvalue:                         {eigenvalue}");
-		WriteLine($"Inverse iteration method eigenvalue:        {s}");
-		WriteLine($"Jacobi diagonalization eigenvalue:          {e[i]}");
+		WriteLine($"Jacobi diagonalization eigenvalue:               {e[i]}");
+		WriteLine($"Deviation for initial values:                    {deviation}");
+		WriteLine($"Error tolerance:                                 {tol}");
+		WriteLine($"Initial eigenvalue:                              {e_0}");
+		WriteLine($"Inverse iteration method eigenvalue:             {s}");
+		WriteLine($"Error (dev. from Jacobi):                        {Abs(s-e[i])}");
+
 		return 0;
 	}
-	public static Func<double,double> f3 = delegate(double x){return Cos(x);};
 }
+
+
+
+
+

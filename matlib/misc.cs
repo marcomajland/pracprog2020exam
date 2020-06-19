@@ -36,7 +36,16 @@ public partial class misc{
 		}
 		data.Close();
 	}
-	public static matrix gen_matrix(int n){
+
+// Following makes random matrix with double entries
+	public static matrix gen_matrix(int n, int max = 10){
+		Random rnd = new Random();
+		matrix A = new matrix(n,n);
+		for(int i=0;i<n;i++){for(int j=0;j<n;j++){A[i][j] = rnd.NextDouble()*max; A[j][i]=A[i][j];}}
+		return A;
+	}
+// Following makes random matrix with integer entries
+/*	public static matrix gen_matrix(int n){
 		Random rnd = new Random();
 		int minint = 0;
 		int maxint = 10;
@@ -44,6 +53,7 @@ public partial class misc{
 		for(int i=0;i<n;i++){for(int j=0;j<n;j++){A[i][j] = rnd.Next(minint,maxint);A[j][i]=A[i][j];}}
 		return A;
 	}
+*/
 
 }
 
