@@ -1,0 +1,12 @@
+set term svg background rgb 'white'
+set out "Deviations.svg"
+set xlabel "Deviation"
+set ylabel "Amount of convergences"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key top right
+set style circle radius 0.001
+set xrange [0.80:1.20]
+set title "Convergence of inverse iteration algorithm as function of deviation from initial Jacobi eigenvalue (300 iterations per deviation)"
+plot "./plot_files/deviations.txt" using 1:2 with circles fill solid lc rgbcolor "blue" title "Convergences"

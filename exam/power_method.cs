@@ -26,7 +26,7 @@ public partial class power_method{
 			n++; m++;
 		}
 		s = u.dot(A*u)/(u.norm()*u.norm());
-		WriteLine($"Inverse iteration iterations:    {n}");
+//w		WriteLine($"Inverse iteration iterations:    {n}");
 		return s;
 	}
 }
