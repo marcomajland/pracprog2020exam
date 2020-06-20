@@ -18,3 +18,6 @@ This output file contains the testing of the algorithm for a random matrix. The 
 
 Convergence.pdf
 This output file depicts the convergence of the algorithm as a function of iterations. This is done for different deviations from the sought eigenvalue. This is done both with and without the Rayleigh method, which demonstrates faster convergence using the Rayleigh method.
+
+project.pdf
+This output file contains a more in depth description of the project.
