@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.11)  19 JUN 2020 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.11)  20 JUN 2020 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -194,51 +194,47 @@ e
 ))
 LaTeX Font Info:    Try loading font information for U+bbold on input line 16.
 
-(/usr/share/texlive/texmf-dist/tex/latex/bbold/Ubbold.fd)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
+(/usr/share/texlive/texmf-dist/tex/latex/bbold/Ubbold.fd) [1
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
-<../outfiles/Deviations.pdf, id=1, 361.35pt x 216.81pt>
-File: ../outfiles/Deviations.pdf Graphic file (type pdf)
-<use ../outfiles/Deviations.pdf>
-Package pdftex.def Info: ../outfiles/Deviations.pdf  used on input line 30.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<../outfiles/Convergence.pdf, id=19, 361.35pt x 216.81pt>
+File: ../outfiles/Convergence.pdf Graphic file (type pdf)
+<use ../outfiles/Convergence.pdf>
+Package pdftex.def Info: ../outfiles/Convergence.pdf  used on input line 38.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
-Overfull \hbox (16.34912pt too wide) in paragraph at lines 30--31
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 38--39
 [][] 
  []
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <../outfiles/Deviations
-.pdf>] (./main.aux) ) 
+[2] [3 <../outfiles/Convergence.pdf>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 2106 strings out of 494923
- 28557 string characters out of 6180742
- 85168 words of memory out of 5000000
- 5394 multiletter control sequences out of 15000+600000
- 10848 words of font info for 40 fonts, out of 8000000 for 9000
+ 2088 strings out of 494923
+ 28272 string characters out of 6180742
+ 85173 words of memory out of 5000000
+ 5379 multiletter control sequences out of 15000+600000
+ 10065 words of font info for 38 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,6n,25p,447b,210s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/bbold-ty
-pe1/bbold10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (2 pages, 134724 bytes).
+ 41i,6n,25p,1034b,208s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-d
+ist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (3 pages, 153668 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

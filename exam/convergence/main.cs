@@ -7,7 +7,7 @@ class main{
 		int dim = 30;
 		double tau = 1e-6;
 		double eps = 1e-6;
-		int updates = 999;
+		int updates = 999; // If updates=999, no Rayleigh updates are performed
 		int n_max = 999;
 		var rnd = new Random(); int i = rnd.Next(dim);
 		
@@ -17,10 +17,10 @@ class main{
 
 		var jacobi = new jacobi_diagonalization(A);
 		vector e = jacobi.get_eigenvalues(); 
-		matrix V = jacobi.get_eigenvectors(); 
 
 		vector v_0 = misc.gen_vector(dim);
 
+		// The below code monitors the error as function of iterations to investigate convergence for different deviations
 		double e_0;
 		double[] deviations = new double[3] {1.01, 1.02, 1.03};
 
@@ -35,8 +35,3 @@ class main{
 		return 0;
 	}	
 }
-
-
-
-
-

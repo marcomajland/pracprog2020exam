@@ -10,34 +10,33 @@
 \begin{document}
 	\maketitle
 	\noindent
-	The objective of the project is to iteratively calculate the eigenvalue of a given real symmetric matrix, $A$, closest to an input eigenvalue and its associated eigenvector. This is done using the inverse iteration method which is an improvement of the power iteration method. By shifting the matrix equation of the power method, one obtains the inverse iteration method.\\
+	The objective of the project is to iteratively calculate the eigenvalue of a given real symmetric matrix, $\mathbf{A}$, closest to an input eigenvalue and its associated eigenvector. This is done using the inverse iteration method which is an improvement of the power iteration method. By shifting the matrix equation of the power method, one obtains the inverse iteration method.\\
 	Let $\mathbf{A}$ denote a real  symmetric matrix of dimension $n\times n$ and the initial guess of the eigenvalue and eigenvector be $s$ and $\mathbf{u}$ (normalized), respectively. The inverse iteration method is then given by
 	\begin{equation}
 		(\mathbf{A} - s\mathbb{1})\mathbf{v} = \mathbf{u}
+		\label{eq:inverse_iteration}
 	\end{equation}
-	where $\mathbf{v}$ is the refined eigenvector of $\mathbf{A}$. In the implementation of the inverse iteration algorithm, the above linear matrix equation is solved using QR decomposition.
-	\subsection*{Test of convergence relative to deviation from expected eigenvalue}
-	The convergence to the expected eigenvalue in the inverse iteration method depends critically on the initial guess. If two eigenvalues of a matrix are very close, of course, there is a high risk for the algorithm to converge to the wrong eigenvalue. This hypothesis is tested in the following way.
-	\begin{itemize}
-		\item Generate random real symmetrix matrix of size NN
-		\item Diagonalize using Jacobi diagonalization procedure
-		\item Use initial guess $s_{0} = \delta s_{\textrm{Jacobi}}$ where $s_{0}$ is initial guess of II method, $\delta$ is the deviation and $s_{\textrm{Jacobi}}$ is the Jacobi eigenvalue
-		\item Apply II method with $s_{0}$ and corresponding eigenvector as initial guess
-		\item Iterate the above procedure for 300 iterations for a given $\delta$
-	\end{itemize}
-	The above procedure is then repeated for a range of deviations. 
+	where $\mathbf{v}$ is the refined eigenvector of $\mathbf{A}$. In the implementation of the inverse iteration algorithm, the above linear matrix equation is solved using QR decomposition. During the iterations, one may update the matrix in \ref{eq:inverse_iteration} used in solving for the iterated vector, $\mathbf{v}$. The update, however, requires further QR decomposition at the cost of $O(n^3)$ operations, although this may yield faster convergence.
+	\subsection*{Test of the algorithm}
+	To perform a test of the algorithm, a random real symmetric matrix $\mathbf{A}$ of dimension $5\times 5$ is generated. To benchmark the result, $\mathbf{A}$ is diagonalized using the Jacobi diagonalization procedure implemented in problems 4 (PATH). A random eigenvalue, $e_{i}$, is chosen from the sequence of eigenvalues produced in the Jacobi procedure. The initial guess of the sought eigenvalue is parametrized as $s_{0} = \delta e_{i}$ where $\delta$ is the deviation. Apparently, the inverse iteration method is sensitive to the deviation from the sought eigenvalue which is demonstrated later in the project. In this test of the algorithm, no Rayleigh updates are made for simplicity. Thus, Eq. \ref{eq:inverse_iteration} is solved iteratively until convergence. Since the resulting scalar $s$ and vector $\mathbf{v}$ should be an eigenvalue and eigenvector of $\mathbf{A}$, respectively, the convergence criteria for the absolute and relative accuracies are
+	\begin{equation}
+		\textrm{norm}\Big(\mathbf{A}\mathbf{v_{i}} - s\mathbf{v_{i}}\Big)\leq\tau\quad\textrm{(absolute)}
+	\end{equation}
+	and
+	\begin{equation}
+	\frac{\textrm{norm}\Big(\mathbf{A}\mathbf{v_{i}} - s\mathbf{v_{i}}\Big)}{\textrm{norm}(\mathbf{A}\mathbf{v_{i}}) + \textrm{norm}(s\mathbf{v_{i}})}\leq\frac{\epsilon}{2}\quad\textrm{(relative)}.
+	\end{equation}
+	Such an example is presented in the output file \texttt{/exam/test\_out.txt}. The file contains the following information. The random matrix $\mathbf{A}$ is generated and a random eigenvalue index is chosen after the Jacobi diagonalization. To track convergence to the correct eigenvalue, the eigenvalues closest to $e_{i}$ in question are presented. The deviation $\delta$ is chosen, in the example, $\delta = 1.05$ which implies the initial eigenvalue guess deviates $5\%$ from the Jacobi eigenvalue which is assumed to be the correct eigenvalue. Absolute and relative accuracies are chosen to be $\tau=\epsilon=10^{-6}$. Two different approaches are made to the initial guess of the eigenvector. First, a random normalized vector is chosen. Second, the corresponding eigenvector of the Jacobi diagonalization for the sought eigenvalue is chosen, but the entries are deviated with $\delta$. Then, the iteration result is presented. To ensure the correct eigenvector has been found, the scalar quantity
+	\begin{equation}
+		s = \mathbf{v^{T}Av}
+	\end{equation}
+	since $\mathbf{v}$ is an eigenvector of $\mathbf{A}$ if the iteration procedure is succesful.\\
+	To investigate whether the eigenvalue may have converged to a neighbouring eigenvalue in the spectrum of $\mathbf{A}$, the deviation from these eigenvalues is also calculated.\\ $\mathbf{NOTE:}$ Only random eigenvalues up to dimension-1 are picked since the file compares the calculated eigenvalue to the neighbouring eigenvalues. Thus, if the program picks the last eigenvalue in the spectrum, this will return an error.
+	\subsection*{Test of convergence}
+	The inverse iteration method converges slower and potentially to a wrong eigenvalue if the initial deviation is too large. Thus, by picking an eigenvalue closer to the sought eigenvalue, one achieves faster convergence. Furthermore, using the Rayleigh update, one may achieve even faster convergence. To demonstrate this, the inverse iteration method was applied on a random real symmetric matrix $\mathbf{A}$ for different initial deviations, with and without the Rayleigh update. The result is depicted in figure \ref{fig:convergence}. In this figure, the predictions are exhibited clearly. In the calculations, the matrix dimension is 30, $\tau=\epsilon=10^{-6}$ and the Rayleigh update is performed at each iteration.
 	\begin{figure}
-		\includegraphics[]{../outfiles/Deviations.pdf}
-		\caption{Distributions of convergences. Convergence of 1.0 implies all iterations yielded the expected Jacobi eigenvalue. Convergence of 0.5 implies half of all iterations yielded the expected Jacobi eigenvalue.}
-		\label{fig:deviations}
-	\end{figure}	
-	The resulting normalized distribution is depicted in figure \ref{fig:deviations}. As can be seen, the distribution is symmetric around $\delta = 1.0$ for which the initial guess equals the Jacobi eigenvalues. As expected, the convergence drops rapidly as the deviation differs from 1. For these calculations, the eigenvalue was updated for every iteration using the Rayleigh quotient and updating the QR decomposition.
-
-\begin{thebibliography}{9}
-	\bibitem{ref1}
-	A. Van Wijngaarden and W. L. Scheen,
-	\textit{Table of Fresnel integrals},
-	The Computation Department of the Mathematical Centre, Amsterdam,
-	1949.
-\end{thebibliography}
+		\includegraphics[]{../outfiles/Convergence.pdf}
+		\caption{Relative error as function of iterations for the inverse iteration method applied on a random real symmetric matrix $\mathbf{A}$ with and without the Rayleigh update.}
+		\label{fig:convergence}
+	\end{figure}
 \end{document}

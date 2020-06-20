@@ -1,6 +1,6 @@
-set term svg background rgb 'white'
+set term pdf background rgb 'white'
 set termoption enhanced
-set out "Convergence.svg"
+set out "../Convergence.pdf"
 set xlabel "Iterations"
 set ylabel "Relative error"
 set xzeroaxis
@@ -13,6 +13,6 @@ set title "Convergence of inverse iteration algorithm as function of iterations"
 plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" title "delta = 1.01, no update", \
 "./plotfiles/convergence_1.txt" using 1:2 with lines lc rgbcolor "green" title "delta = 1.02, no update", \
 "./plotfiles/convergence_2.txt" using 1:2 with lines lc rgbcolor "black" title "delta = 1.03, no update", \
-"./plotfiles/convergence_3.txt" using 1:2 with lines linetype 0 lc rgbcolor "blue" title "dev 1.01, with update", \
-"./plotfiles/convergence_4.txt" using 1:2 with lines linetype 0 lc rgbcolor "green" title "dev 1.02, with update", \
-"./plotfiles/convergence_5.txt" using 1:2 with lines linetype 0 lc rgbcolor "black" title "dev 1.03, with update"
+"./plotfiles/convergence_3.txt" using 1:2 with lines lt 2 dt 2 lc rgbcolor "blue" title "delta 1.01, with update", \
+"./plotfiles/convergence_4.txt" using 1:2 with lines lt 2 dt 2 lc rgbcolor "green" title "delta 1.02, with update", \
+"./plotfiles/convergence_5.txt" using 1:2 with lines lt 2 dt 2 lc rgbcolor "black" title "delta 1.03, with update"
