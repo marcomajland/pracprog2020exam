@@ -14,7 +14,6 @@ public partial class power_method{
 		As = A - s*I;
 		qr As_QR = new qr(As);
 		while(error > tol && n < n_max){
-//			if(error == 2){break;}
 			v = As_QR.solve(u);
 			v = v/v.norm();
 			error = (v - u).norm();

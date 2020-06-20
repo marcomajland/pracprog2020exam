@@ -1,0 +1,28 @@
+--------------------------------------------
+Inverse iteration method (Jacobi comparison)
+--------------------------------------------
+To test the implementation of the inverse iteration method, the algorithm is compared to the Jacobi diagonalization procedure which we implemented in problems 4.
+A random real symmetric matrix of dimensions 30x30 is generated and diagonalized using Jacobi diagonalization (implementation may be found in matlib). A random eigenvalue of the Jacobi procedure is chosen as initial guess for the inverse iteration. The initial guess is defined as e_0 = delta*e_i where delta is the deviation from the Jacobi eigenvalue, e_i. The Jacobi eigenvalues are ordered in increasing order such that e_13<e_14<e_15.
+
+Random eigenvalue index:     14
+
+Jacobi eigenvalues:
+e_13:                         -3.81479772334862
+e_14:                         -2.13356314365531
+e_15:                         -0.735219492945867
+
+Inverse iteration method:
+Deviation:                    1.05
+Initial eigenvalue:           -2.24024130083807
+Algorithm result:             -2.13355901030803
+Error:                        8.02532277726532E-16
+Iterations:                   6
+Rayleigh updates:             0
+
+Comparison to Jacobi diagonalization:
+Abs(e_13 - s):                1.6812387130406
+Abs(e_14 - s):                4.13334728088799E-06
+Abs(e_15 - s):                1.39833951736216
+
+Eigenvectors of Jacobi diagonalization:
+
