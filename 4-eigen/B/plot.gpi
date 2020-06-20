@@ -7,5 +7,4 @@ set yzeroaxis
 set tics out
 set key bottom right
 set style circle radius 0.1
-#set logscale xy
 plot "./plot_files/diag_scale.txt" using 1:2 with circles fill solid title "Operations"
