@@ -35,60 +35,15 @@ public partial class qnewton{
 		}
 		return n;
 	}
-public static vector gradient(Func<vector,double> f, vector x, double eps=1e-8){
-	double fx = f(x); double dx;
-	vector grad = new vector(x.size);
-	for(int i=0;i<grad.size;i++){
-		dx = Abs(x[i])*eps;
-		x[i] += dx;
-		grad[i] = (f(x) - fx)/dx;
-		x[i] -= dx;
-	}
-	return grad;
-}
-public static int sr1
-(Func<vector,double>f, ref vector x, double acc=1e-3){
-	double fx=f(x);
-	vector gx=gradient(f,x);
-	matrix B=new matrix(x.size,x.size); B.set_identity();
-	int nsteps=0;
-	while(nsteps<999){
-		nsteps++;
-		vector Dx=-B*gx;
-		if(Dx.norm()<acc*x.norm()){
-			//Error.Write($"broyden: |Dx|<EPS*|x|\n");
-			break;
-			}
-		if(gx.norm()<acc){
-			//Error.Write($"broyden: |gx|<acc\n");
-			break;
-			}
-		vector z;
-		double fz,lambda=1;
-		while(true){// backtracking linesearch
-			z=x+Dx*lambda;
-			fz=f(z);
-			if(fz<fx){
-				break; // good step
-				}
-			if(lambda<acc){
-				B.set_identity();
-				break; // accept anyway
-				}
-			lambda/=2;
+	public static vector gradient(Func<vector,double> f, vector x, double eps=1e-8){
+		double fx = f(x); double dx;
+		vector grad = new vector(x.size);
+		for(int i=0;i<grad.size;i++){
+			dx = Abs(x[i])*eps;
+			x[i] += dx;
+			grad[i] = (f(x) - fx)/dx;
+			x[i] -= dx;
 		}
-		vector s=z-x;
-		vector gz=gradient(f,z);
-		vector y=gz-gx;
-		vector u=s-B*y;
-		double uTy=u%y;
-		if(Abs(uTy)>1e-6){
-			B.update(u,u,1/uTy); // SR1 update
-		}
-		x=z;
-		gx=gz;
-		fx=fz;
+		return grad;
 	}
-	return nsteps;
-}//broyden
 }
