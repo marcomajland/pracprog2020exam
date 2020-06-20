@@ -20,3 +20,5 @@ Exam problems:
 
 Interpolation:
 - must compare to standard library cubic spline routine
+Eigenvalues:
+- must calculate largest eigenvalue

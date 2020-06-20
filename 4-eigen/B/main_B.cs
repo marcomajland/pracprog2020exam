@@ -58,6 +58,7 @@ class eigen{
 		outfile.WriteLine($"Amount of rotations (lowest eigenvalue):      {Ac_res.get_rotations()}");
 		outfile.WriteLine($"Amount of rotations (full diagonalization):   {Acc_res.get_rotations()}\n");
 		outfile.WriteLine($"Thus, the eigenvalue-by-eigenvalue method is suitable for calculuating only the lowest eigenvalues of a matrix whereas the cyclic sweep method is faster for full diagonalization.");
+		outfile.WriteLine($"Rotation angle should be changed into 0.5*arctan2(-Apq, App-Aqq) to achieve largest eigenvalue.");
 		outfile.Close();
 	return 0;
 	}
