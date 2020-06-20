@@ -1,21 +1,6 @@
-Notes:
-- In the roots problems, the ODE routine used to calculate roots of auxiliary function of radial Schrodinger equation must be one's own ODE routine rather than Dmitri's routine (perhaps a bug in the ODE routine)
-- The root finder is very sensitive to initial guess of root, perhaps a bug in the ODE routine
-- In matlib, qnewton.cs routine has an extra method called sr1() which must be revised or removed (possibly a method used from Dmitri's matlib
-- Must finish exercise 8C with outfile and comparison to other minimization routines
-- Changed random real symmetrix matrix generator to contain double entries rather than integer entries, must check if this changes the results of any of the exercises
-
-
 Eigenvalue problems:
 - Must do third order polynomial curve fitting for amount of operations of Jacobi diagonalization routine in exercise B
 - The eigenvalue-by-eigenvalue routine for lowest eigenvalue only works better than cyclic sweeps method for high matrix dimensions
-
-Minimization problems:
--In exercise 8C, the minimization of the Rosenbrock function seems to require fewer minimization steps for the quasi-Newton method where the downhill simplex method requires more steps at the cost of a higher accuracy.
-
-Exam problems:
-- The initial eigenvector guess in the inverse iteration method has been replaced with a random vector rather than the Jacobi eigenvector
-
 
 Interpolation:
 - must compare to standard library cubic spline routine
