@@ -41,13 +41,14 @@ public partial class power_method{
 		qr As_QR = new qr(As);
 		
 		List<double> errors = new List<double>();
-		generate_errors(As_QR, ref A, ref I, ref errors, s, updates, e_J, v_0, tau, eps);
+		List<double> errors_s = new List<double>();
+		generate_errors(As_QR, ref A, ref I, ref errors, ref errors_s, s, updates, e_J, v_0, tau, eps);
 
 		var outfile = new System.IO.StreamWriter($"./plotfiles/convergence_{iteration}.txt",append:false);
-		for(int k=0;k<errors.Count;k++){outfile.WriteLine($"{k} {errors[k]}");}
+		for(int k=0;k<errors.Count;k++){outfile.WriteLine($"{k} {errors[k]} {errors_s[k]}");}
 		outfile.Close();	
 	}
-	public static void generate_errors(qr As_QR, ref matrix A, ref matrix I, ref List<double> errors, double s, int updates, double e_J, vector v_0, double tau = 1e-6, double eps = 1e-6, double n_max = 999){
+	public static void generate_errors(qr As_QR, ref matrix A, ref matrix I, ref List<double> errors, ref List<double> errors_s, double s, int updates, double e_J, vector v_0, double tau = 1e-6, double eps = 1e-6, double n_max = 999){
 		int n = 0; int m = 0;
 		matrix As;
 		vector u; vector v;
@@ -63,9 +64,10 @@ public partial class power_method{
 				As = A - s*I;
 				As_QR = new qr(As);
 			}
-			n++; m++; errors.Add(rel);
+			n++; m++; errors.Add(rel); errors_s.Add(Abs(s-e_J));
 		}
 		errors.Add(rel);
+		errors_s.Add(Abs(s-e_J));
 		s = u.dot(A*u)/(u.norm()*u.norm());
 	}
 }

@@ -16,3 +16,4 @@ plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" tit
 "./plotfiles/convergence_3.txt" using 1:2 with lines lt 2 dt 2 lc rgbcolor "blue" title "delta 1.01, with update", \
 "./plotfiles/convergence_4.txt" using 1:2 with lines lt 2 dt 2 lc rgbcolor "green" title "delta 1.02, with update", \
 "./plotfiles/convergence_5.txt" using 1:2 with lines lt 2 dt 2 lc rgbcolor "black" title "delta 1.03, with update"
+

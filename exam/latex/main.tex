@@ -25,18 +25,36 @@
 	and
 	\begin{equation}
 	\frac{\textrm{norm}\Big(\mathbf{A}\mathbf{v_{i}} - s\mathbf{v_{i}}\Big)}{\textrm{norm}(\mathbf{A}\mathbf{v_{i}}) + \textrm{norm}(s\mathbf{v_{i}})}\leq\frac{\epsilon}{2}\quad\textrm{(relative)}.
+	\label{eq:relative_error}
 	\end{equation}
 	Such an example is presented in the output file \texttt{/exam/test\_out.txt}. The file contains the following information. The random matrix $\mathbf{A}$ is generated and a random eigenvalue index is chosen after the Jacobi diagonalization. To track convergence to the correct eigenvalue, the eigenvalues closest to $e_{i}$ in question are presented. The deviation $\delta$ is chosen, in the example, $\delta = 1.05$ which implies the initial eigenvalue guess deviates $5\%$ from the Jacobi eigenvalue which is assumed to be the correct eigenvalue. Absolute and relative accuracies are chosen to be $\tau=\epsilon=10^{-6}$. Two different approaches are made to the initial guess of the eigenvector. First, a random normalized vector is chosen. Second, the corresponding eigenvector of the Jacobi diagonalization for the sought eigenvalue is chosen, but the entries are deviated with $\delta$. Then, the iteration result is presented. To ensure the correct eigenvector has been found, the scalar quantity
 	\begin{equation}
 		s = \mathbf{v^{T}Av}
 	\end{equation}
-	since $\mathbf{v}$ is an eigenvector of $\mathbf{A}$ if the iteration procedure is succesful.\\
+	is calculated and must equal the iterated eigenvalue since $\mathbf{v}$ is an eigenvector of $\mathbf{A}$ if the iteration procedure is succesful.\\
 	To investigate whether the eigenvalue may have converged to a neighbouring eigenvalue in the spectrum of $\mathbf{A}$, the deviation from these eigenvalues is also calculated.\\ $\mathbf{NOTE:}$ Only random eigenvalues up to dimension-1 are picked since the file compares the calculated eigenvalue to the neighbouring eigenvalues. Thus, if the program picks the last eigenvalue in the spectrum, this will return an error.
 	\subsection*{Test of convergence}
-	The inverse iteration method converges slower and potentially to a wrong eigenvalue if the initial deviation is too large. Thus, by picking an eigenvalue closer to the sought eigenvalue, one achieves faster convergence. Furthermore, using the Rayleigh update, one may achieve even faster convergence. To demonstrate this, the inverse iteration method was applied on a random real symmetric matrix $\mathbf{A}$ for different initial deviations, with and without the Rayleigh update. The result is depicted in figure \ref{fig:convergence}. In this figure, the predictions are exhibited clearly. In the calculations, the matrix dimension is 30, $\tau=\epsilon=10^{-6}$ and the Rayleigh update is performed at each iteration.
+	The inverse iteration method converges slower and potentially to a wrong eigenvalue if the initial deviation is too large. Thus, by picking an eigenvalue closer to the sought eigenvalue, one achieves faster convergence. Furthermore, using the Rayleigh update, one may achieve even faster convergence. To demonstrate this, the inverse iteration method was applied on a random real symmetric matrix $\mathbf{A}$ for different initial deviations, with and without the Rayleigh update. For these calculations, the deviations were $\delta=1.01,1.02,1.03$. The convergence of the relative error, given by Eq. \ref{eq:relative_error}, is depicted in Fig. \ref{fig:convergence}. This quantity, however, only describes convergence to a given eigenvalue/eigenvector, not necessarily to the target eigenvalue/eigenvector. Thus, to check whether the algorithm actually converges to the target eigenvalue and not some neigbouring eigenvalue, convergence to the initial Jacobi eigenvalue is tested. The results are depicted in Fig. \ref{fig:convergence2}. As can be seen, if the quantity converges to a small number, the corresponding calculation converges to the target eigenvalue. If not, the algorithm may have converged to a neighbouring eigenvalue.\\
+	To investigate the same convergences for higher deviations, calculations with $\delta=1.05,1.075,1.10$ were made and are depicted analogously to the above in Figs. \ref{fig:convergence3} and \ref{fig:convergence4}.\\
+	For all the above calculations, the matrix dimension is 30, $\tau=\epsilon=10^{-6}$. For the calculations in which the Rayleigh update is performed, it is performed for every iteration.
 	\begin{figure}
-		\includegraphics[]{../outfiles/Convergence.pdf}
-		\caption{Relative error as function of iterations for the inverse iteration method applied on a random real symmetric matrix $\mathbf{A}$ with and without the Rayleigh update.}
+		\includegraphics[]{../Convergence.pdf}
+		\caption{Relative error as function of iterations for the inverse iteration method applied on a random real symmetric matrix $\mathbf{A}$ with and without the Rayleigh update. This convergence implies convergence to a given eigenvalue/eigenvector.}
 		\label{fig:convergence}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[]{../Convergence2.pdf}
+		\caption{Deviation of iterating eigenvalue relative to the initial Jacobi eigenvalue. This convergence demonstrates the convergence to the target eigenvalue.}
+		\label{fig:convergence2}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[]{../Convergence3.pdf}
+		\caption{Relative error as function of iterations for the inverse iteration method applied on a random real symmetric matrix $\mathbf{A}$ with and without the Rayleigh update. This convergence implies convergence to a given eigenvalue/eigenvector.}
+		\label{fig:convergence3}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[]{../Convergence4.pdf}
+		\caption{Deviation of iterating eigenvalue relative to the initial Jacobi eigenvalue. This convergence demonstrates the convergence to the target eigenvalue.}
+		\label{fig:convergence4}
 	\end{figure}
 \end{document}

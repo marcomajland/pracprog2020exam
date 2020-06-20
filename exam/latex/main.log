@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.11)  20 JUN 2020 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.11)  20 JUN 2020 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -197,44 +197,78 @@ LaTeX Font Info:    Try loading font information for U+bbold on input line 16.
 (/usr/share/texlive/texmf-dist/tex/latex/bbold/Ubbold.fd) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../outfiles/Convergence.pdf, id=19, 361.35pt x 216.81pt>
-File: ../outfiles/Convergence.pdf Graphic file (type pdf)
-<use ../outfiles/Convergence.pdf>
-Package pdftex.def Info: ../outfiles/Convergence.pdf  used on input line 38.
+<../Convergence.pdf, id=19, 361.35pt x 216.81pt>
+File: ../Convergence.pdf Graphic file (type pdf)
+<use ../Convergence.pdf>
+Package pdftex.def Info: ../Convergence.pdf  used on input line 41.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
-Overfull \hbox (16.34912pt too wide) in paragraph at lines 38--39
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 41--42
 [][] 
  []
 
-[2] [3 <../outfiles/Convergence.pdf>] (./main.aux) ) 
+<../Convergence2.pdf, id=20, 361.35pt x 216.81pt>
+File: ../Convergence2.pdf Graphic file (type pdf)
+<use ../Convergence2.pdf>
+Package pdftex.def Info: ../Convergence2.pdf  used on input line 46.
+(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 46--47
+[][] 
+ []
+
+<../Convergence3.pdf, id=21, 361.35pt x 216.81pt>
+File: ../Convergence3.pdf Graphic file (type pdf)
+<use ../Convergence3.pdf>
+Package pdftex.def Info: ../Convergence3.pdf  used on input line 51.
+(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 51--52
+[][] 
+ []
+
+<../Convergence4.pdf, id=22, 361.35pt x 216.81pt>
+File: ../Convergence4.pdf Graphic file (type pdf)
+<use ../Convergence4.pdf>
+Package pdftex.def Info: ../Convergence4.pdf  used on input line 56.
+(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+
+Overfull \hbox (16.34912pt too wide) in paragraph at lines 56--57
+[][] 
+ []
+
+[2] [3 <../Convergence.pdf>] [4 <../Convergence2.pdf> <../Convergence3.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Convergence3.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] [5 <../Convergence4.pdf>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 2088 strings out of 494923
- 28272 string characters out of 6180742
- 85173 words of memory out of 5000000
- 5379 multiletter control sequences out of 15000+600000
+ 2107 strings out of 494923
+ 28705 string characters out of 6180742
+ 88205 words of memory out of 5000000
+ 5395 multiletter control sequences out of 15000+600000
  10065 words of font info for 38 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,6n,25p,1034b,208s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-d
-ist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (3 pages, 153668 bytes).
+ 41i,6n,25p,1273b,206s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts
+/type1/public/bbold-type1/bbold10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (5 pages, 185189 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

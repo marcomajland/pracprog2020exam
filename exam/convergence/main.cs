@@ -23,7 +23,7 @@ class main{
 		// The below code monitors the error as function of iterations to investigate convergence for different deviations
 		double e_0;
 		double[] deviations = new double[3] {1.01, 1.02, 1.03};
-
+		double[] deviations2 = new double[3] {1.05, 1.075, 1.10};
 		for(int j=0;j<deviations.Length;j++){
 			e_0 = e[i]*deviations[j];
 			power_method.generate_convergences(j, ref Ac, ref I, e_0, v_0, e[i], tau, eps, n_max, updates);
@@ -31,6 +31,14 @@ class main{
 		for(int j=0;j<deviations.Length;j++){
 			e_0 = e[i]*deviations[j];
 			power_method.generate_convergences(j+deviations.Length, ref Ac, ref I, e_0, v_0, e[i], tau, eps, n_max, -1);
+		}
+		for(int j=0;j<deviations2.Length;j++){
+			e_0 = e[i]*deviations2[j];
+			power_method.generate_convergences(j+2*deviations.Length, ref Ac, ref I, e_0, v_0, e[i], tau, eps, n_max, updates);
+		}
+		for(int j=0;j<deviations2.Length;j++){
+			e_0 = e[i]*deviations2[j];
+			power_method.generate_convergences(j+3*deviations2.Length, ref Ac, ref I, e_0, v_0, e[i], tau, eps, n_max, -1);
 		}
 		return 0;
 	}	
