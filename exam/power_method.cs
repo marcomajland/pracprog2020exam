@@ -4,8 +4,8 @@ using static System.Math;
 using static System.Double;
 using System.Collections.Generic;
 public partial class power_method{
-	public static double[] inverse_iteration(matrix A, double e_0, vector v_0, double tau = 1e-6, double eps = 1e-6, int n_max = 999, int updates = 5, bool error_msg = false){
-		int n = 0; int m = 0; double error;
+	public static double[] inverse_iteration(matrix A, double e_0, vector v_0, double tau = 1e-6, double eps = 1e-6, int n_max = 999, int updates = 5){
+		int n = 0; int m = 0;
 		double s; vector u; vector v;
 		matrix As; matrix I;
 		I = new matrix(A.size1,A.size1); I.set_identity();
@@ -14,7 +14,7 @@ public partial class power_method{
 		As = A - s*I;
 		qr As_QR = new qr(As);
 		double abs=0; double rel=0;
-		while(nconverge(u,A,s,tau,eps,ref abs, ref rel) && n < n_max);{
+		while(nconverge(u,A,s,tau,eps,ref abs, ref rel) && n < n_max){
 			v = As_QR.solve(u);
 			u = v/v.norm();
 			s = u.dot(A*u);
