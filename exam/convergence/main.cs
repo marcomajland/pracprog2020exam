@@ -5,7 +5,8 @@ using static System.Math;
 class main{
 	public static int Main(){	
 		int dim = 30;
-		double tol = 1e-6;
+		double tau = 1e-6;
+		double eps = 1e-6;
 		int updates = 999;
 		int n_max = 999;
 		var rnd = new Random(); int i = rnd.Next(dim);
@@ -24,7 +25,7 @@ class main{
 		for(int j=0;j<deviations.Length;j++){
 			e_0 = e[i]*deviations[j];
 			matrix I = new matrix(A.size1,A.size1); I.set_identity();
-			power_method.generate_convergences(j, ref Ac, ref I, e_0, v_0, e[i], tol, n_max, updates);
+			power_method.generate_convergences(j, ref Ac, ref I, e_0, v_0, e[i], tau, eps, n_max, updates);
 		}
 		return 0;
 	}	
