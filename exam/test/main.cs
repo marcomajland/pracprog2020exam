@@ -19,13 +19,15 @@ class main{
 		matrix V = jacobi.get_eigenvectors(); 
 
 		double e_0 = e[i]*deviation;
-		vector v_0 = V[i]/V[i].norm();
-		for(int j=0;j<v_0.size;j++){v_0[j] = v_0[j]*deviation;}
+		vector v_0 = new vector(V[i].size);
+		for(int j=0;j<v_0.size;j++){v_0[j] = rnd.NextDouble()*dim;} // b vector for linear equation
+//		vector v_0 = V[i]/V[i].norm();
+//		for(int j=0;j<v_0.size;j++){v_0[j] = v_0[j]*deviation;}
 
 		double[] s = power_method.inverse_iteration(Ac, e_0, v_0, tol, n_max, updates, false);
 
 
-		var outfile = new System.IO.StreamWriter($"../outfiles/test_out.txt",append:false);
+		var outfile = new System.IO.StreamWriter($"test_out.txt",append:false);
 		outfile.WriteLine($"--------------------------------------------");
 		outfile.WriteLine($"Inverse iteration method (Jacobi comparison)");
 		outfile.WriteLine($"--------------------------------------------");

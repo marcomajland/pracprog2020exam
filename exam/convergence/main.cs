@@ -17,12 +17,15 @@ class main{
 		vector e = jacobi.get_eigenvalues(); 
 		matrix V = jacobi.get_eigenvectors(); 
 
-		double e_0; vector v_0;
+		vector v_0 = new vector(V[i].size);
+		for(int j=0;j<v_0.size;j++){v_0[j] = rnd.NextDouble()*dim;}
+
+		double e_0;
 		double[] deviations = new double[1] {1.01};
 		for(int j=0;j<deviations.Length;j++){
 			e_0 = e[i]*deviations[j];
-			v_0 = V[i]/V[i].norm();
-			for(int k=0;k<v_0.size;k++){v_0[k] = v_0[k]*deviations[j];}
+//			v_0 = V[i]/V[i].norm();
+//			for(int k=0;k<v_0.size;k++){v_0[k] = v_0[k]*deviations[j];}
 			matrix I = new matrix(A.size1,A.size1); I.set_identity();
 			generate_convergences(j, ref Ac, ref I, e_0, v_0, e[i], tol, n_max, updates);
 		}

@@ -38,11 +38,17 @@ public partial class misc{
 	}
 
 // Following makes random matrix with double entries
-	public static matrix gen_matrix(int n, int max = 10){
+	public static matrix gen_matrix(int n, double max = 10){
 		Random rnd = new Random();
 		matrix A = new matrix(n,n);
 		for(int i=0;i<n;i++){for(int j=0;j<n;j++){A[i][j] = rnd.NextDouble()*max; A[j][i]=A[i][j];}}
 		return A;
+	}
+	public static vector gen_vector(int n, double max = 10){
+		Random rnd = new Random();
+		vector v = new vector(n);
+		for(int i=0;i<n;i++){v[i] = rnd.NextDouble()*max;}
+		return v;
 	}
 // Following makes random matrix with integer entries
 /*	public static matrix gen_matrix(int n){
