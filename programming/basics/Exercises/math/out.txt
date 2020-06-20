@@ -1,0 +1,8 @@
+sqrt(2) = 1.4142135623731
+sqrt(2) = 1.4142135623731
+exp(i) = 0.54+0.841i
+exp(ipi) = -1+1.22e-16i
+i^i = 0.208+0i
+sin(ipi) = 0+11.5i
+Checking if two numbers are equal:
+The two numbers are equal

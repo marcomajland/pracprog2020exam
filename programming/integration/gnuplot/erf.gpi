@@ -1,0 +1,90 @@
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+"erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines
+set term svg
+set out "Erf.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "erf.txt" with lines

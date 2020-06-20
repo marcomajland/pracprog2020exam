@@ -1,0 +1,9 @@
+set term svg
+set out "Data.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "data.txt" using (1/$2)*sin($1):(1/$2)*cos($1) with lines notitle

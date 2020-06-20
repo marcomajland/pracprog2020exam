@@ -1,0 +1,8 @@
+l
+using System.Console;
+class main{
+	static void Main(){
+		Write("Hello World!");
+	return 0;
+	}
+}

@@ -1,0 +1,11 @@
+random matrix A:
+     0.835       0.63      0.859 
+     0.774      0.628      0.389 
+     0.419      0.216    0.00443 
+random vector b:
+     0.923      0.988      0.624 
+solution x to system A*x=b:
+      1.57     -0.146     -0.342 
+check: A*x (should be equal b):
+     0.923      0.988      0.624 
+test passed

@@ -1,0 +1,10 @@
+set term pdf
+set out "Output.pdf"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+set style circle radius 0.05
+plot "output.txt" using 1:2 with lines title "S(x)", "output.txt" using 1:3 with lines title "C(x)", "table.txt" using 1:3 title "S(x) table values" with circles fill solid, "table.txt" using 1:2 title "C(x) table values" with circles fill solid

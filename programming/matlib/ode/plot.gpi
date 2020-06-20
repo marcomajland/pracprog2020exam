@@ -1,0 +1,9 @@
+set term svg fsize 18 background rgb "white"
+set out "plot.svg"
+set key out
+set tics out
+set xlabel "x"
+plot \
+ "out.txt" using 1:2 with points pt 7 ps 0.5 title "sin" \
+,"out.txt" using 1:3 with lines title "cos" \
+,"out.txt" using ($1):(0) w p pt 7 ps 0.1 not \

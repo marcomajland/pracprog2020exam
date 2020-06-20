@@ -1,0 +1,4 @@
+public static double var{
+
+
+}

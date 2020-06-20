@@ -1,0 +1,36 @@
+set term svg
+set out "Gamma.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "gamma.txt" with lines
+set term svg
+set out "Gamma.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "gamma.txt" with lines
+set term svg
+set out "Gamma.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "gamma.txt" with lines
+set term svg
+set out "Gamma.svg"
+set xlabel "x"
+set ylabel "y"
+set xzeroaxis
+set yzeroaxis
+set tics out
+set key bottom right
+plot "gamma.txt" with lines
