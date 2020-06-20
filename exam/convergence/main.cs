@@ -17,11 +17,10 @@ class main{
 		vector e = jacobi.get_eigenvalues(); 
 		matrix V = jacobi.get_eigenvectors(); 
 
-		vector v_0 = new vector(V[i].size);
-		for(int j=0;j<v_0.size;j++){v_0[j] = rnd.NextDouble()*dim;}
+		vector v_0 = misc.gen_vector(dim);
 
 		double e_0;
-		double[] deviations = new double[1] {1.01};
+		double[] deviations = new double[3] {1.01, 1.02, 1.03};
 		for(int j=0;j<deviations.Length;j++){
 			e_0 = e[i]*deviations[j];
 //			v_0 = V[i]/V[i].norm();

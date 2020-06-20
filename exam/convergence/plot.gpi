@@ -5,18 +5,15 @@ set ylabel "Error"
 set xzeroaxis
 set yzeroaxis
 set tics out
-set key bottom right
+set key top right
 set style circle radius 0.1
 set logscale y
 set format y "%g"
-#set title "Convergence of inverse iteration algorithm as function of iterations without Rayleigh update"
-plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" title "dev 1.01, no update"
+set title "Convergence of inverse iteration algorithm as function of iterations without Rayleigh update"
+plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" title "dev 1.01, no update", \
+"./plotfiles/convergence_1.txt" using 1:2 with lines lc rgbcolor "green" title "dev 1.02, no update", \
+"./plotfiles/convergence_2.txt" using 1:2 with lines lc rgbcolor "black" title "dev 1.03, no update"
 
-
-
-
-#"./plotfiles/convergence_1.txt" using 1:2 with lines lc rgbcolor "green" title "dev 1.05, no update", \
-#"./plotfiles/convergence_2.txt" using 1:2 with lines lc rgbcolor "black" title "dev 1.10, no update", \
 #"./plotfiles/rayleigh_convergence_0.txt" using 1:2 with lines linetype 0 lc rgbcolor "blue" title "dev 1.01, update 2", \
 #"./plotfiles/rayleigh_convergence_1.txt" using 1:2 with lines linetype 0 lc rgbcolor "green" title "dev 1.05, update 2", \
 #"./plotfiles/rayleigh_convergence_2.txt" using 1:2 with lines linetype 0 lc rgbcolor "black" title "dev 1.10, update 2"
