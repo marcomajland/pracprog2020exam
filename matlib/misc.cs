@@ -44,6 +44,12 @@ public partial class misc{
 		for(int i=0;i<n;i++){for(int j=0;j<n;j++){A[i][j] = rnd.NextDouble()*max; A[j][i]=A[i][j];}}
 		return A;
 	}
+	public static matrix random_matrix(int n, int m, double max = 10){
+		Random rnd = new Random();
+		matrix A = new matrix(n,m);
+		for(int i=0;i<m;i++){for(int j=0;j<n;j++){A[i][j] = rnd.NextDouble()*max;}}
+		return A;
+	}
 	public static vector gen_vector(int n, double max = 10){
 		Random rnd = new Random();
 		vector v = new vector(n);

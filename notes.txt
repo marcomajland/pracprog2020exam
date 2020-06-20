@@ -16,3 +16,7 @@ Minimization problems:
 
 Exam problems:
 - The initial eigenvector guess in the inverse iteration method has been replaced with a random vector rather than the Jacobi eigenvector
+
+
+Interpolation:
+- must compare to standard library cubic spline routine

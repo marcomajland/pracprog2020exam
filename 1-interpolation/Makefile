@@ -9,6 +9,3 @@ lib.dll : $(MATLIB)/quado8.cs $(MATLIB)/misc.cs $(LIBRARY)/qspline.cs $(LIBRARY)
 	mcs $^ -t:library -out:$@
 clean :
 	rm --force *.exe *.svg *.dll *.txt
-	cd $(A); rm --force *.svg *.txt
-	cd $(B); rm --force *.svg *.txt
-	cd $(C); rm --force *.svg *.txt

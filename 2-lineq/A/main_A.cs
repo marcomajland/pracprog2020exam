@@ -2,12 +2,9 @@ using System;
 using static System.Console;
 class main_A{
 	public static int Main(){
-		Random rnd = new Random();
-		int minint = 0; int maxint = 20; // Range of random integer entries in the tall matrix
 		int n = 5; int m = 3; // Row and column dimensions
 
-		matrix A = new matrix(n,m);
-		for(int i=0;i<m;i++){for(int j=0;j<n;j++){A[i][j] = rnd.Next(minint,maxint);}} // Insert random matrix entries
+		matrix A = misc.random_matrix(n,m);
 		var data = new qr(A); // Instance of qr decomposition class of matrix A
 		matrix Q = data.Q;
 		matrix R = data.R;		
@@ -41,10 +38,8 @@ class main_A{
 		outfile.WriteLine("");
 
 		n = 5; m = 5;
-		A = new matrix(n,m);
-		vector b = new vector(n);
-		for(int i=0;i<m;i++){for(int j=0;j<n;j++){A[i][j] = rnd.Next(minint,maxint);}}
-		for(int i=0;i<n;i++){b[i] = rnd.Next(minint,maxint);} // b vector for linear equation
+		A = misc.random_matrix(n,m);
+		vector b = misc.gen_vector(n);
 		data = new qr(A);
 		vector x = new vector(n);
 		x = data.solve(b);

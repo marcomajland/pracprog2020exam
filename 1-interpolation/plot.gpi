@@ -1,5 +1,5 @@
 set term svg background rgb 'white'
-set out "./A/Lspline.svg"
+set out "A_Plot.svg"
 set xlabel "x"
 set ylabel "y"
 set xzeroaxis
@@ -12,7 +12,7 @@ plot "./datafiles/lspline_out.txt" using 1:2 with lines title "Linear interpolat
 plot "./datafiles/lspline_out.txt" using 1:3 with lines title "Integral", "./datafiles/data2.txt" using 1:2 with circles fill solid title "y = -cos(x) + 1"
 unset multiplot
 
-set out "./B/Qspline.svg"
+set out "B_plot.svg"
 set xlabel "x"
 set ylabel "y"
 set xzeroaxis
@@ -27,7 +27,7 @@ plot "./datafiles/qspline_out.txt" using 1:4 with lines title "Derivative", "./d
 unset multiplot
 
 set term svg
-set out "./C/Cspline.svg"
+set out "C_Plot.svg"
 set xlabel "x"
 set ylabel "y"
 set xzeroaxis
