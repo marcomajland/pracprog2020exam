@@ -6,10 +6,10 @@ class main{
 	public static int Main(){	
 		int dim = 30;
 		double tol = 1e-6;
-		int updates = 0;
-		int n_max = 999;
+		int updates = 999;
+		int n_max = 5000;
 		var rnd = new Random(); int i = rnd.Next(dim);
-		double deviation = 1.05;
+		double deviation = 1.01;
 
 		matrix A = misc.gen_matrix(dim);
 		matrix Ac = A.copy();
@@ -19,12 +19,12 @@ class main{
 		matrix V = jacobi.get_eigenvectors(); 
 
 		double e_0 = e[i]*deviation;
-		vector v_0 = new vector(V[i].size);
-		for(int j=0;j<v_0.size;j++){v_0[j] = rnd.NextDouble()*dim;} // b vector for linear equation
-//		vector v_0 = V[i]/V[i].norm();
-//		for(int j=0;j<v_0.size;j++){v_0[j] = v_0[j]*deviation;}
+		vector v_01 = V[i]/V[i].norm();
+		for(int j=0;j<v_01.size;j++){v_01[j] = v_01[j]*deviation;}
+		vector v_02 = misc.gen_vector(dim);
 
-		double[] s = power_method.inverse_iteration(Ac, e_0, v_0, tol, n_max, updates, false);
+		double[] s1 = power_method.inverse_iteration(Ac, e_0, v_01, tol, n_max, updates, false);
+		double[] s2 = power_method.inverse_iteration(Ac, e_0, v_02, tol, n_max, updates, false);
 
 
 		var outfile = new System.IO.StreamWriter($"test_out.txt",append:false);
@@ -41,14 +41,14 @@ class main{
 		outfile.WriteLine($"Inverse iteration method:");
 		outfile.WriteLine($"Deviation:                    {deviation}");
 		outfile.WriteLine($"Initial eigenvalue:           {e_0}");
-		outfile.WriteLine($"Algorithm result:             {s[0]}");
-		outfile.WriteLine($"Error:                        {s[2]}");
-		outfile.WriteLine($"Iterations:                   {s[1]}");
+		outfile.WriteLine($"Algorithm result:             {s1[0]}              {s2[0]}");
+		outfile.WriteLine($"Error:                        {s1[2]}              {s2[2]}");
+		outfile.WriteLine($"Iterations:                   {s1[1]}              {s2[1]}");
 		outfile.WriteLine($"Rayleigh updates:             {updates}\n");
 		outfile.WriteLine($"Comparison to Jacobi diagonalization:");
-		outfile.WriteLine($"Abs(e_{i-1} - s):                {Abs(e[i-1]-s[0])}");
-		outfile.WriteLine($"Abs(e_{i} - s):                {Abs(e[i]-s[0])}");
-		outfile.WriteLine($"Abs(e_{i+1} - s):                {Abs(e[i+1]-s[0])}\n");
+		outfile.WriteLine($"Abs(e_{i-1} - s):                {Abs(e[i-1]-s1[0])}              {Abs(e[i-1]-s2[0])}");
+		outfile.WriteLine($"Abs(e_{i} - s):                {Abs(e[i]-s1[0])}                  {Abs(e[i]-s2[0])}");
+		outfile.WriteLine($"Abs(e_{i+1} - s):                {Abs(e[i+1]-s1[0])}              {Abs(e[i+1]-s2[0])}\n");
 		outfile.WriteLine($"Eigenvectors of Jacobi diagonalization:");
 		outfile.WriteLine("");
 		outfile.Close();	

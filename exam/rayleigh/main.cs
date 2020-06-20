@@ -6,10 +6,10 @@ class main{
 	public static int Main(){	
 		int dim = 30;
 		double tol = 1e-6;
-		int updates = -1;
+		int updates = 999;
 		int n_max = 999;
 		var rnd = new Random(); int i = rnd.Next(dim);
-		double deviation = 1.05;
+		double deviation = 1.01;
 
 		matrix A = misc.gen_matrix(dim);
 		matrix Ac = A.copy();
@@ -19,8 +19,7 @@ class main{
 		matrix V = jacobi.get_eigenvectors(); 
 
 		double e_0 = e[i]*deviation;
-		vector v_0 = new vector(V[i].size);
-		for(int j=0;j<v_0.size;j++){v_0[j] = rnd.NextDouble()*dim;}
+		vector v_0 = misc.gen_vector(dim);
 
 		double[] s = power_method.inverse_iteration(Ac, e_0, v_0, tol, n_max, updates, false);
 

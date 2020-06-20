@@ -7,7 +7,7 @@ class main{
 	int dim = 30;
 		double tol = 1e-6;
 		int updates = 0;
-		int n_max = 999;
+		int n_max = 3000;
 		var rnd = new Random(); int i = rnd.Next(dim);
 		double deviation = 1.05;
 

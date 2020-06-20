@@ -7,22 +7,22 @@ A random real symmetric matrix of dimensions 30x30 is generated and diagonalized
 Random eigenvalue index:     18
 
 Jacobi eigenvalues:
-e_17:                         3.58746940363802
-e_18:                         4.41850792498134
-e_19:                         8.46070751730157
+e_17:                         4.66813771491257
+e_18:                         6.05773125503254
+e_19:                         6.94629578050504
 
 Inverse iteration method:
 Deviation:                    1.05
-Initial eigenvalue:           4.63943332123041
-Algorithm result:             4.41850795377126
-Error:                        1.44344838363241E-15
-Iterations:                   6
+Initial eigenvalue:           6.36061781778417
+Algorithm result:             6.05773256071636
+Error:                        2
+Iterations:                   3000
 Rayleigh updates:             0
 
 Comparison to Jacobi diagonalization:
-Abs(e_17 - s):                0.831038550133242
-Abs(e_18 - s):                2.87899144524317E-08
-Abs(e_19 - s):                4.04219956353031
+Abs(e_17 - s):                1.38959484580379
+Abs(e_18 - s):                1.30568381795371E-06
+Abs(e_19 - s):                0.888563219788678
 
 Eigenvectors of Jacobi diagonalization:
 

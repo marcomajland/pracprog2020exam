@@ -4,8 +4,8 @@ using static System.Math;
 using static System.Double;
 using System.Collections.Generic;
 public partial class power_method{
-	public static double[] inverse_iteration(matrix A, double e_0, vector v_0, double tol = 1e-6, int n_max = 999, int updates = 5, bool error_msg = false){
-		int n = 0; int m = 0; double error = 1.0;
+	public static double[] inverse_iteration(matrix A, double e_0, vector v_0, double tol = 1e-6, int n_max = 999, int updates = 5, bool error_msg = false, double eps = 1e-6){
+		int n = 0; int m = 0; double error;
 		double s; vector u; vector v;
 		matrix As; matrix I;
 		I = new matrix(A.size1,A.size1); I.set_identity();
@@ -13,7 +13,7 @@ public partial class power_method{
 		s = e_0;
 		As = A - s*I;
 		qr As_QR = new qr(As);
-		while(error > tol && n < n_max){
+		do{
 			v = As_QR.solve(u);
 			v = v/v.norm();
 			error = (v - u).norm();
@@ -25,7 +25,7 @@ public partial class power_method{
 				As_QR = new qr(As);
 			}
 			n++; m++;
-		}
+		}while(nequal(u,v,tol,eps) && n < n_max);
 		if(n == n_max && error_msg){WriteLine($"Warning: maximum iterations reached, maybe wrong eigenvector");}
 		else if(error_msg){WriteLine($"Iteration results:");
 			WriteLine($"Iterations:          {n}");
@@ -34,6 +34,16 @@ public partial class power_method{
 		}
 		s = u.dot(A*u)/(u.norm()*u.norm());
 		return new double[] {s, n, error};
+	}
+	public static bool nequal(vector u, vector v, double tol, double eps){
+		double diff; double rel_diff;
+		for(int i=0;i<u.size;i++){
+			diff = Abs(u[i] - v[i]);
+			rel_diff = diff/Max(Abs(u[i]), Abs(v[i]));
+			if(tol < diff){return false;}
+			if(eps < rel_diff){return false;}
+		}
+		return true;				
 	}
 	public static void generate_convergences(int iteration, ref matrix A, ref matrix I, double e_0, vector v_0, double e_J, double tol = 1e-6, int n_max = 999, int updates = 999){
 		matrix As; double s = e_0;
