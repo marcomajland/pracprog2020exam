@@ -5,22 +5,22 @@ Test of eigenvalue-by-eigenvalue routine:
 A random symmetric matrix A of dimension 10x10 is generated.
 
 5 lowest eigenvalues of A:
-     -15.4      -11.4      -10.8      -5.94     -0.604 
+     -13.2        -10      -6.92      -1.46      0.689 
 
 Eigenvalues of A for comparison:
-     -15.4      -11.4      -10.8      -5.94     -0.604       1.82       7.63         12       12.9       53.5 
+     -13.2        -10      -6.92      -1.46      0.689       6.05       8.93       13.1       14.7         49 
 
 Comparison of the two diagonalization routines in terms of number of rotations:
 Another random symmetric matrix A of dimension 50x50 is generated.
 
 Cyclic method:
-Lowest eigenvalue:                            -37.2624883832063
+Lowest eigenvalue:                            -35.8022708510244
 Amount of rotations (full diagonalization):   6125
 
 Eigenvalue-by-eigenvalue method:
-Lowest eigenvalue:                            -37.2624978541109
-Amount of rotations (lowest eigenvalue):      3822
-Amount of rotations (full diagonalization):   276026
+Lowest eigenvalue:                            -35.8023392971191
+Amount of rotations (lowest eigenvalue):      6909
+Amount of rotations (full diagonalization):   253107
 
 Thus, the eigenvalue-by-eigenvalue method is suitable for calculuating only the lowest eigenvalues of a matrix whereas the cyclic sweep method is faster for full diagonalization.
 Rotation angle should be changed into 0.5*arctan2(-Apq, App-Aqq) to achieve largest eigenvalue.

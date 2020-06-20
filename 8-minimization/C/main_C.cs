@@ -12,9 +12,13 @@ class main_C{
 		};
 		
 		vector xi_qn_rosenbrock = new vector(3.0,3.0);
-		vector xi_qn_himmelblau = new vector(3.1,2.1);	
+		vector xi_qn_rosenbrock_initial = xi_qn_rosenbrock.copy();
+		vector xi_qn_himmelblau = new vector(4.0,3.0);	
+		vector xi_qn_himmelblau_initial = xi_qn_himmelblau.copy();
 		vector xi_ds_rosenbrock = new vector(3.0,3.0);
-		vector xi_ds_himmelblau = new vector(3.1,2.1);	
+		vector xi_ds_rosenbrock_initial = xi_ds_rosenbrock.copy();
+		vector xi_ds_himmelblau = new vector(4.0,3.0);	
+		vector xi_ds_himmelblau_initial = xi_ds_himmelblau.copy();
 		double tol = 1e-8;
 
 		int qn_rosenbrock = qnewton.minimize(rosenbrock, ref xi_qn_rosenbrock, tol);
@@ -29,23 +33,30 @@ class main_C{
 		outfile.WriteLine($"The downhill simplex minimization routine is implemented and compared to the quasi-Newton method in exercise 8A with tolerance = {tol}.\n");
 		outfile.WriteLine($"Minimization of the Rosenbrock function:\n");
 		outfile.WriteLine($"Quasi-Newton minimization routine:");
+		outfile.WriteLine($"Initial (x,y):  {xi_qn_rosenbrock_initial[0]},{xi_qn_rosenbrock_initial[1]}");
+		outfile.WriteLine($"Accuracy goal:  {tol}");
 		outfile.WriteLine($"(x,y):          {xi_qn_rosenbrock[0]},{xi_qn_rosenbrock[1]}");
 		outfile.WriteLine($"Error:          {1.0 - xi_qn_rosenbrock[0]},{1.0 - xi_qn_rosenbrock[1]}");
 		outfile.WriteLine($"Steps:          {qn_rosenbrock}\n");
 		outfile.WriteLine($"Downhill simplex minimization routine:");
+		outfile.WriteLine($"Initial (x,y):  {xi_ds_rosenbrock_initial[0]},{xi_ds_rosenbrock_initial[1]}");
+		outfile.WriteLine($"Accuracy goal:  {tol}");
 		outfile.WriteLine($"(x,y):          {xi_ds_rosenbrock[0]},{xi_ds_rosenbrock[1]}");
 		outfile.WriteLine($"Error:          {1.0 - xi_ds_rosenbrock[0]},{1.0 - xi_ds_rosenbrock[1]}");
 		outfile.WriteLine($"Steps:          {ds_rosenbrock}\n");
 		outfile.WriteLine($"Minimization of the Himmelblau function:\n");
 		outfile.WriteLine($"Quasi-Newton minimization routine:");
+		outfile.WriteLine($"Initial (x,y):  {xi_qn_himmelblau_initial[0]},{xi_qn_himmelblau_initial[1]}");
+		outfile.WriteLine($"Accuracy goal:  {tol}");
 		outfile.WriteLine($"(x,y):          {xi_qn_himmelblau[0]},{xi_qn_himmelblau[1]}");
 		outfile.WriteLine($"Error:          {3.0 - xi_qn_himmelblau[0]},{2.0 - xi_qn_himmelblau[1]}");
 		outfile.WriteLine($"Steps:          {qn_himmelblau}\n");
 		outfile.WriteLine($"Downhill simplex minimization routine:");
+		outfile.WriteLine($"Initial (x,y):  {xi_ds_himmelblau_initial[0]},{xi_ds_himmelblau_initial[1]}");
 		outfile.WriteLine($"(x,y):          {xi_ds_himmelblau[0]},{xi_ds_himmelblau[1]}");
 		outfile.WriteLine($"Error:          {3.0 - xi_ds_himmelblau[0]},{2.0 - xi_ds_himmelblau[1]}");
 		outfile.WriteLine($"Steps:          {ds_himmelblau}\n");
-		outfile.WriteLine($"The downhill simplex method seems to achieve better accuracy as compared to the quasi-Newton method. Although, for the Rosenbrock function, the downhill simplex method performs quite a few more minimization steps as compared to the quasi-Newton method.");
+		outfile.WriteLine($"The downhill simplex method seems to achieve better accuracy as compared to the quasi-Newton method. However, the downhill simplex method performs quite a few more minimization steps as compared to the quasi-Newton method.");
 
 
 /*

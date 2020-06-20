@@ -7,7 +7,7 @@ class eigen{
 	public static int Main(){
 		// 1) Amount of operations scaling
 		matrix A;
-		int nmax = 60;
+		int nmax = 100;
 		Stopwatch time = new Stopwatch();
 		var diag_scale = new System.IO.StreamWriter("./plot_files/diag_scale.txt",append:false);
 		for(int n=2;n<nmax;n+=1){

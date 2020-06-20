@@ -6,11 +6,15 @@ The downhill simplex minimization routine is implemented and compared to the qua
 Minimization of the Rosenbrock function:
 
 Quasi-Newton minimization routine:
+Initial (x,y):  3,3
+Accuracy goal:  1E-08
 (x,y):          0.999996995005876,0.999993985013046
 Error:          3.00499412364541E-06,6.01498695373959E-06
 Steps:          63
 
 Downhill simplex minimization routine:
+Initial (x,y):  3,3
+Accuracy goal:  1E-08
 (x,y):          1.00000000241826,1.00000000477367
 Error:          -2.41825759417225E-09,-4.77367234630321E-09
 Steps:          120
@@ -18,13 +22,16 @@ Steps:          120
 Minimization of the Himmelblau function:
 
 Quasi-Newton minimization routine:
-(x,y):          2.99999998675176,1.99999999683142
-Error:          1.32482411707713E-08,3.16857695636941E-09
-Steps:          999
+Initial (x,y):  4,3
+Accuracy goal:  1E-08
+(x,y):          2.99999998533249,1.99999999880729
+Error:          1.46675112056016E-08,1.19270948673034E-09
+Steps:          13
 
 Downhill simplex minimization routine:
-(x,y):          3.0000000007272,2.00000000248486
-Error:          -7.27196081129478E-10,-2.4848638702224E-09
-Steps:          69
+Initial (x,y):  4,3
+(x,y):          2.99999999795526,1.99999999760342
+Error:          2.04473726839183E-09,2.39658293210709E-09
+Steps:          70
 
-The downhill simplex method seems to achieve better accuracy as compared to the quasi-Newton method. Although, for the Rosenbrock function, the downhill simplex method performs quite a few more minimization steps as compared to the quasi-Newton method.
+The downhill simplex method seems to achieve better accuracy as compared to the quasi-Newton method. However, the downhill simplex method performs quite a few more minimization steps as compared to the quasi-Newton method.

@@ -1,1 +1,0 @@
-In exercise 8C, the minimization of the Rosenbrock function seems to require fewer minimization steps for the quasi-Newton method where the downhill simplex method requires more steps at the cost of a higher accuracy.

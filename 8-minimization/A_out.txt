@@ -1,10 +1,14 @@
 ----------------------------------------------------------------------------------------
 Quasi-Newton method with numerical gradient, back-tracking linesearch, and rank-1 update
 ----------------------------------------------------------------------------------------
-Minimization of the Rosenbrock function (steps: 56):
-(x,y):          1.00000342120338,1.00000684741565
-Error:          -3.42120337859519E-06,-6.84741564516145E-06
+Minimization of the Rosenbrock function (steps: 63):
+Initial (x,y):  3,3
+Accuracy goal:  1E-08
+(x,y):          0.999996995005876,0.999993985013046
+Error:          3.00499412364541E-06,6.01498695373959E-06
 
-Minimization of the Himmelblau function (steps: 7):
-(x,y):          2.99999998675176,1.99999999683098
-Error:          1.32482407266821E-08,3.16901749286558E-09
+Minimization of the Himmelblau function (steps: 13):
+Initial (x,y):  4,3
+Accuracy goal:  1E-08
+(x,y):          2.99999998533249,1.99999999880729
+Error:          1.46675112056016E-08,1.19270948673034E-09
