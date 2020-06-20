@@ -1,0 +1,5 @@
+Fit data of the Breit-Wigner equation:
+Higgs (steps: 999):
+m: 125.970117282943
+gamma: 2.08341751076437
+A: 9.85303486150976

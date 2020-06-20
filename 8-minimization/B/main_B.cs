@@ -17,10 +17,13 @@ class minimization{
 		};
 		vector xi_higgs = new vector(125.0,4.0,15.0);	
 		int steps_higgs = qnewton.minimize(D, ref xi_higgs, 1e-6);
-		WriteLine($"Higgs (steps: {steps_higgs}):");
-		WriteLine($"m: {xi_higgs[0]}");
-		WriteLine($"gamma: {xi_higgs[1]}");
-		WriteLine($"A: {xi_higgs[2]}");
+		var outfile = new System.IO.StreamWriter($"../B_out.txt",append:false);
+		outfile.WriteLine($"Fit data of the Breit-Wigner equation:");
+		outfile.WriteLine($"Higgs (steps: {steps_higgs}):");
+		outfile.WriteLine($"m: {xi_higgs[0]}");
+		outfile.WriteLine($"gamma: {xi_higgs[1]}");
+		outfile.WriteLine($"A: {xi_higgs[2]}");
+		outfile.Close();
 	
 		var higgs_plot = new System.IO.StreamWriter($"higgs_plot.txt",append:false);
 		double E_min = E[0];
