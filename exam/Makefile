@@ -1,9 +1,10 @@
 MATLIB = ../matlib
-all : main.exe plot.gpi plot_convergence.gpi
+all : main.exe
 	mono $<
-	gnuplot plot.gpi
-	gnuplot plot_convergence.gpi
-	cd outfiles; inkview Convergence.svg
+	cat test_out.txt
+#	gnuplot plot.gpi
+#	gnuplot plot_convergence.gpi
+#	cd outfiles; inkview Convergence.svg
 main.exe : main.cs lib.dll
 	mcs $< -r:lib.dll
 lib.dll : $(MATLIB)/vector.cs $(MATLIB)/matrix.cs $(MATLIB)/qr.cs $(MATLIB)/misc.cs power_method.cs $(MATLIB)/jacobi.cs
