@@ -42,8 +42,6 @@ public partial class power_method{
 		qr As_QR = new qr(As);
 		
 		List<double> errors = new List<double>();
-		//List<double> rayleigh_errors = new List<double>();
-		
 		generate_errors(As_QR, ref A, ref I, ref errors, s, updates, e_J, v_0, tau, eps);
 
 		var outfile = new System.IO.StreamWriter($"./plotfiles/convergence_{iteration}.txt",append:false);

@@ -1,19 +1,18 @@
-set term svg background rgb 'white' enhanced
+set term svg background rgb 'white'
+set termoption enhanced
 set out "Convergence.svg"
 set xlabel "Iterations"
-set ylabel "Error"
+set ylabel "Relative error"
 set xzeroaxis
 set yzeroaxis
 set tics out
-set key top right
-set style circle radius 0.1
+set key bottom right
 set logscale y
 set format y "%g"
-set title "Convergence of inverse iteration algorithm as function of iterations without Rayleigh update"
-plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" title "dev 1.01, no update", \
-"./plotfiles/convergence_1.txt" using 1:2 with lines lc rgbcolor "green" title "dev 1.02, no update", \
-"./plotfiles/convergence_2.txt" using 1:2 with lines lc rgbcolor "black" title "dev 1.03, no update"
-
-#"./plotfiles/rayleigh_convergence_0.txt" using 1:2 with lines linetype 0 lc rgbcolor "blue" title "dev 1.01, update 2", \
-#"./plotfiles/rayleigh_convergence_1.txt" using 1:2 with lines linetype 0 lc rgbcolor "green" title "dev 1.05, update 2", \
-#"./plotfiles/rayleigh_convergence_2.txt" using 1:2 with lines linetype 0 lc rgbcolor "black" title "dev 1.10, update 2"
+set title "Convergence of inverse iteration algorithm as function of iterations"
+plot "./plotfiles/convergence_0.txt" using 1:2 with lines lc rgbcolor "blue" title "delta = 1.01, no update", \
+"./plotfiles/convergence_1.txt" using 1:2 with lines lc rgbcolor "green" title "delta = 1.02, no update", \
+"./plotfiles/convergence_2.txt" using 1:2 with lines lc rgbcolor "black" title "delta = 1.03, no update", \
+"./plotfiles/convergence_3.txt" using 1:2 with lines linetype 0 lc rgbcolor "blue" title "dev 1.01, with update", \
+"./plotfiles/convergence_4.txt" using 1:2 with lines linetype 0 lc rgbcolor "green" title "dev 1.02, with update", \
+"./plotfiles/convergence_5.txt" using 1:2 with lines linetype 0 lc rgbcolor "black" title "dev 1.03, with update"
