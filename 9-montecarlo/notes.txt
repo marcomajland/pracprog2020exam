@@ -1,1 +1,0 @@
-The 1/sqrt(N) fit in exercise B does not consistently fit the points well.
