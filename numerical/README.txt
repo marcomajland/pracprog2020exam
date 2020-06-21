@@ -1,6 +1,6 @@
--------------------------------------------------------------
-Practical Programming and Numerical Methods 2020 exam project
--------------------------------------------------------------
+------------------------------------------------
+Practical Programming and Numerical Methods 2020
+------------------------------------------------
 
 Name: Marco Majland
 Student number: 201607680
