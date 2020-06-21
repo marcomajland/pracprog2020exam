@@ -1,7 +1,0 @@
-Eigenvalue problems:
-- The eigenvalue-by-eigenvalue routine for lowest eigenvalue only works better than cyclic sweeps method for high matrix dimensions
-
-Interpolation:
-- must compare to standard library cubic spline routine
-Eigenvalues:
-- must calculate largest eigenvalue
