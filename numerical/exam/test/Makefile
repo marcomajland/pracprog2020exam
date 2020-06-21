@@ -1,7 +1,6 @@
 MATLIB = ../../matlib
 all : main.exe
 	mono $<
-	cat test_out.txt
 main.exe : main.cs lib.dll
 	mcs $< -r:lib.dll
 lib.dll : $(MATLIB)/vector.cs $(MATLIB)/matrix.cs $(MATLIB)/qr.cs $(MATLIB)/misc.cs ../power_method.cs $(MATLIB)/jacobi.cs
