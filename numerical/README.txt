@@ -21,3 +21,6 @@ Monte Carlo:		6	3	0	  9
 Artifical NN:		6	3	0	  9
 
 Total:						 94
+
+Answers to the problems are to be found in the designated folders. Exam project is found in the exam folder.
+Many algorithms which are used repeatedly through all problems and exam project are found in the matlib library.
