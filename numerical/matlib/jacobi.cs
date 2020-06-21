@@ -90,7 +90,6 @@ public class jacobi_diagonalization{
 		return schanged;
 		}
 		else{int schanged = 0; return schanged;}
-	}
 	public vector get_eigenvalues(){
 		return e;
 	}
