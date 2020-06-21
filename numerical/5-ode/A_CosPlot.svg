@@ -130,13 +130,15 @@
 	</g>
 </g>
 	<g id="gnuplot_plot_1a" ><title>ODE routine solution of y = cos(x)</title>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+<g fill="none" color="#FFFFFF" stroke="black" stroke-width="4.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="4.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(498.9,141.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >ODE routine solution of y = cos(x)</tspan></text>
 	</g>
 </g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(148,   0, 211)'  d='M507.2,137.4 L549.4,137.4 M80.9,54.1 L81.0,54.1 L81.1,54.1 L81.2,54.1 L81.3,54.1 L81.4,54.1
+<g fill="none" color="black" stroke="currentColor" stroke-width="4.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(  0,   0, 255)'  d='M507.2,137.4 L549.4,137.4 M80.9,54.1 L81.0,54.1 L81.1,54.1 L81.2,54.1 L81.3,54.1 L81.4,54.1
 		L81.5,54.1 L81.6,54.1 L81.7,54.1 L81.8,54.1 L81.9,54.1 L82.0,54.1 L82.1,54.1 L82.2,54.1
 		L82.3,54.1 L82.4,54.1 L82.5,54.1 L82.6,54.1 L82.7,54.1 L82.8,54.2 L82.9,54.2 L83.0,54.2
 		L83.1,54.2 L83.2,54.2 L83.3,54.2 L83.4,54.2 L83.5,54.2 L83.6,54.2 L83.7,54.2 L83.8,54.2
@@ -729,13 +731,15 @@
 		 '/></g>
 	</g>
 	<g id="gnuplot_plot_2a" ><title>cos(x)</title>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+<g fill="none" color="#FFFFFF" stroke="rgb(  0,   0, 255)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(498.9,159.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >cos(x)</tspan></text>
 	</g>
 </g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(  0, 158, 115)'  d='M507.2,155.4 L549.4,155.4 M80.9,54.1 L81.0,54.1 L81.1,54.1 L81.2,54.1 L81.3,54.1 L81.4,54.1
+<g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(  0, 255,   0)'  d='M507.2,155.4 L549.4,155.4 M80.9,54.1 L81.0,54.1 L81.1,54.1 L81.2,54.1 L81.3,54.1 L81.4,54.1
 		L81.5,54.1 L81.6,54.1 L81.7,54.1 L81.8,54.1 L81.9,54.1 L82.0,54.1 L82.1,54.1 L82.2,54.1
 		L82.3,54.1 L82.4,54.1 L82.5,54.1 L82.6,54.1 L82.7,54.1 L82.8,54.2 L82.9,54.2 L83.0,54.2
 		L83.1,54.2 L83.2,54.2 L83.3,54.2 L83.4,54.2 L83.5,54.2 L83.6,54.2 L83.7,54.2 L83.8,54.2
@@ -1326,8 +1330,6 @@
 		L507.8,121.9 L507.9,121.8 L508.0,121.7 L508.1,121.6 L508.2,121.6 L508.2,121.5 L508.3,121.4 L508.4,121.3
 		L508.5,121.2 L508.6,121.1 L508.7,121.0 L508.8,120.9 L508.8,120.8 L508.9,120.7 L509.0,120.6  '/></g>
 	</g>
-<g fill="none" color="#FFFFFF" stroke="rgb(  0, 158, 115)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
-</g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="black" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
