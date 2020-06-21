@@ -1,10 +1,12 @@
 set term svg background rgb 'white'
 set out "../B_DiagonalizationScale.svg"
-set xlabel "Matrix dimension"
-set ylabel "Diagonalization time [ms]"
+set xlabel "log(Matrix dimension)"
+set ylabel "log(Diagonalization time [ms])"
 set xzeroaxis
 set yzeroaxis
 set tics out
 set key bottom right
-set style circle radius 0.1
-plot "./plot_files/diag_scale.txt" using 1:2 with circles fill solid title "Operations"
+set style circle radius 0.005
+set title "Demonstration of O(n^3) dependence of matrix diagonalization"
+plot "./plot_files/diag_scale.txt" using 1:2 with circles fill solid lc rgbcolor "black" title "Operations", \
+"./plot_files/fit_data.txt" using 1:2 with lines lc rgbcolor "blue" title "Linear fit"

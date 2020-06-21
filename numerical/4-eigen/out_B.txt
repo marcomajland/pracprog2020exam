@@ -1,3 +1,11 @@
+---------------------------------
+Scaling of matrix diagonalization
+---------------------------------
+To demonstrate the O(n^3) scaling of the matrix diagonalization procedure, a linear fit is applied to the logaritmic (n,t) data.
+Fit result:
+log(t) = -8.69342468018516 + 3.02882957610098*log(n)
+Thus, the scaling must be O(n^3) since the slope is approximately equal to 3.
+
 -----------------------------------------------
 Jacobi diagonalization eigenvalue-by-eigenvalue
 -----------------------------------------------
@@ -5,22 +13,22 @@ Test of eigenvalue-by-eigenvalue routine:
 A random symmetric matrix A of dimension 10x10 is generated.
 
 5 lowest eigenvalues of A:
-     -13.9      -11.6      -8.59      -1.75     -0.481 
+       -11      -9.49      -6.44      -5.16      -2.59 
 
 Eigenvalues of A for comparison:
-     -13.9      -11.6      -8.59      -1.75     -0.481       5.07       7.88       9.16       14.8       50.6 
+       -11      -9.49      -6.44      -5.16      -2.59    -0.0746       5.35       6.71       16.3       56.3 
 
 Comparison of the two diagonalization routines in terms of number of rotations:
 Another random symmetric matrix A of dimension 50x50 is generated.
 
 Cyclic method:
-Lowest eigenvalue:                            -34.9300413764506
+Lowest eigenvalue:                            -37.0853866838931
 Amount of rotations (full diagonalization):   6125
 
 Eigenvalue-by-eigenvalue method:
-Lowest eigenvalue:                            -34.9300456928223
-Amount of rotations (lowest eigenvalue):      29498
-Amount of rotations (full diagonalization):   312006
+Lowest eigenvalue:                            -37.0853867457454
+Amount of rotations (lowest eigenvalue):      3381
+Amount of rotations (full diagonalization):   286338
 
 Thus, the eigenvalue-by-eigenvalue method is suitable for calculuating only the lowest eigenvalues of a matrix whereas the cyclic sweep method is faster for full diagonalization.
 Rotation angle should be changed into 0.5*arctan2(-Apq, App-Aqq) to achieve largest eigenvalue.
