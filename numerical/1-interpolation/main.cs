@@ -25,19 +25,19 @@ class main{
 		double dz = 0.01;
 		// Output files for linear interpolation
 		var res1 = new lspline(x,y);
-		for(double z=xmin;z<=xmax;z+=dz){
+		for(double z=x[0];z<=x[x.Length-1];z+=dz){
 			lspline_out.WriteLine($"{z} {res1.spline(z)} {res1.integral(z)}");
 		}
 		lspline_out.Close();			
 		// Output files for quadratic interpolation
 		var res2 = new qspline(x,y);
-		for(double z=xmin;z<=xmax;z+=dz){
+		for(double z=x[0];z<=x[x.Length-1];z+=dz){
 			qspline_out.WriteLine($"{z} {res2.spline(z)} {res2.integral(z)} {res2.derivative(z)}");
 		}
 		qspline_out.Close();
 		// Output files for cubic interpolation
 		var res3 = new cspline(x,y);
-		for(double z=xmin;z<=xmax;z+=dz){
+		for(double z=x[0];z<=x[x.Length-1];z+=dz){
 			cspline_out.WriteLine($"{z} {res3.spline(z)} {res3.integral(z)} {res3.derivative(z)}");
 		}
 		cspline_out.Close();
