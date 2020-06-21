@@ -6,6 +6,7 @@ Name: Marco Majland
 Student number: 201607680
 
 Using the algorithm for project assignments, project number 14 is obtained.
+A more in depth description of the project is found in the file Project.pdf.
 
 Brief description of project:
 I have implemented the inverse iteration method for random real symmetric matrices. The output file "test_out.txt" contains a demonstration of the implementation. The code which generates the output file is found in /exam/test. For comparison, I used the Jacobi diagonalization procedure which we implemented earlier in the course to diagonalize the matrix. The demonstration example of the algorithm chooses a random eigenvalue in the Jacobi spectrum and calculates a new deviated value. The deviated value is used as an initial eigenvalue for the algorithm. The initial eigenvector is chosen both as a random vector and a deviated Jacobi eigenvector. From the initial eigenvalue/eigenvector, the inverse iteration algorithm is used to approach the closest eigenvalue/eigenvector. To test for correct convergence, the resulting eigenvalue/eigenvector is compared to the Jacobi diagonalization.
@@ -20,5 +21,5 @@ This output file contains the testing of the algorithm for a random matrix. The 
 Convergence_i.pdf
 This output file depicts the convergence of the algorithm as a function of iterations. This is done for different deviations from the sought eigenvalue. This is done both with and without the Rayleigh method, which demonstrates faster convergence using the Rayleigh method. Convergences are calculated for two measures of error; relative error and deviation from target eigenvalue.
 
-project.pdf
+Project.pdf
 This output file contains a more in depth description of the project and the obtained results.
