@@ -5,7 +5,7 @@ public class jacobi_diagonalization{
 	public matrix V;
 	public matrix Ac;
 	public int rotations;
-	public jacobi_diagonalization(matrix A, string routine="cyclic", int n=0){
+	public jacobi_diagonalization(matrix A, string routine="cyclic", string minmax = "min", int n=0){
 		if(routine=="cyclic"){
 			e = new vector(A.size1); // Vector to contain eigenvalues
 			V = new matrix(A.size1,A.size1); V.set_identity(); // Matrix to contain eigenvectors
@@ -25,7 +25,7 @@ public class jacobi_diagonalization{
 			for(int p=0;p<n;p++){
 				do{changed = 0; for(int q=p+1;q<A.size1;q++){
 					rotations += 1;
-					changed = single_row_rotation(p, q, A);
+					changed = single_row_rotation(p, q, A, minmax);
 				}}while(changed != 0);}
 			for(int i=0;i<n;i++){e[i] = A[i][i];}
 		}		
@@ -67,9 +67,11 @@ public class jacobi_diagonalization{
 		}
 		else{int change = 0; return change;}
 	}
-	public int single_row_rotation(int p, int q, matrix A){
+	public int single_row_rotation(int p, int q, matrix A, string minmax="min"){
 		double App = A[p][p], Aqq = A[q][q], Apq = A[p][q];
-		double phi = 0.5*Atan2(2*Apq,Aqq - App);
+		double phi;
+		if(minmax=="max"){phi = 0.5*Atan2(-2*Apq,App - Aqq);}
+		else{phi = 0.5*Atan2(2*Apq,Aqq - App);}
 		double c = Cos(phi), s = Sin(phi);
 		double app = c*c*App - 2*s*c*Apq + s*s*Aqq;
 		double aqq = s*s*App + 2*s*c*Apq + c*c*Aqq;
@@ -90,6 +92,7 @@ public class jacobi_diagonalization{
 		return schanged;
 		}
 		else{int schanged = 0; return schanged;}
+	}
 	public vector get_eigenvalues(){
 		return e;
 	}
