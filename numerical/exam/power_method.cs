@@ -4,6 +4,7 @@ using static System.Math;
 using static System.Double;
 using System.Collections.Generic;
 public partial class power_method{
+	// The following method performs the inverse iteration method on a real symmetric matrix A
 	public static int inverse_iteration(matrix A, ref double s, ref vector v, double tau = 1e-6, double eps = 1e-6, int n_max = 999, int updates = 999){
 		int n = 0; int m = 0;
 		matrix As; matrix I = new matrix(A.size1,A.size1); I.set_identity();
@@ -27,6 +28,7 @@ public partial class power_method{
 		v = v/v.norm();
 		return n;
 	}
+	// The following method checks for absolute/relative convergence
 	public static bool converge(vector v, matrix A, double s, double tau, double eps, ref double abs, ref double rel){
 		abs = (A*v - s*v).norm();
 		rel = abs/((A*v).norm() + (s*v).norm());
